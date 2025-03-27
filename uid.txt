@@ -1,0 +1,1979 @@
+<!-- Italic text -->
+<i>Italic</i> 
+
+<!-- Bold text -->
+<b>Bold</b> 
+
+<!-- Emphasized text -->
+<em>Emphasized</em> 
+
+<!-- Strongly emphasized text (usually bold) -->
+<strong>Strong</strong> 
+
+<!-- Smaller text -->
+<small>small</small> 
+
+<!-- Strikethrough text to indicate deletion -->
+<del>Deleted</del> 
+
+<!-- Underlined text to indicate insertion -->
+<ins>Inserted</ins> 
+
+<!-- Subscript text (e.g., for formulas like V/f) -->
+v<sub>f</sub> 
+
+<!-- Superscript text (e.g., for exponents like a²) -->
+a<sup>2</sup> 
+
+<!-- Highlighted text -->
+<mark>Marked</mark>
+
+-------------------------------------
+meta content
+-----------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Free Online tutorials">
+    <meta http-equiv="refresh" content="5; url=https://www.javatpoint.com/html-tags-list">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -> device
+</head>
+</html>
+---------------------------------------
+lists all types
+-------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ordered and Unordered Lists</title>
+</head>
+<body>
+    <!-- Unordered List -->
+    <h3>Unordered List Examples:</h3>
+    <ul style="list-style-type: disc;">
+        <li>Disc style (default)</li>
+    </ul>
+    <ul style="list-style-type: circle;">
+        <li>Circle style</li>
+    </ul>
+    <ul style="list-style-type: square;">
+        <li>Square style</li>
+    </ul>
+    <ul style="list-style-type: none;">
+        <li>No style</li>
+    </ul>
+
+    <!-- Ordered List -->
+    <h3>Ordered List Examples:</h3>
+    <ol type="1">
+        <li>Type "1"</li>
+    </ol>
+    <ol type="I">
+        <li>Type "I" (uppercase Roman numerals)</li>
+    </ol>
+    <ol type="i">
+        <li>Type "i" (lowercase Roman numerals)</li>
+    </ol>
+    <ol type="A">
+        <li>Type "A" (uppercase alphabet)</li>
+    </ol>
+    <ol type="a">
+        <li>Type "a" (lowercase alphabet)</li>
+    </ol>
+
+    <!-- Reversed and Start Attribute -->
+    <h3>Ordered List with Attributes:</h3>
+    <ol reversed>
+        <li>Reversed order</li>
+    </ol>
+    <ol start="5">
+        <li>Starting at 5</li>
+    </ol>
+
+    <!-- Description List -->
+    <h3>Description List Example:</h3>
+    <dl>
+        <dt>HTML</dt>
+        <dd>A markup language for structuring web pages.</dd>
+        <dt>CSS</dt>
+        <dd>Styles the appearance of web pages.</dd>
+        <dt>JavaScript</dt>
+        <dd>Adds interactivity to web pages.</dd>
+    </dl>
+</body>
+</html>
+---------------------------------------
+ <font face="Arial" size="4" color="blue">This is Arial font.</font>
+----------------------------------------------
+-----------------------------------------
+ <a href="https://www.example.com" target="_blank(_self)">Visit Example.com</a>
+------------------------------------------
+---------------------------------------------
+mail
+-------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Link Example</title>
+</head>
+<body>
+    <h1>Email Link with `mailto:` Attributes</h1>
+    <p>Click the link below to open your default email client:</p>
+
+    <!-- Email link with mailto attributes -->
+    <a href="mailto:example@example.com?cc=cc@example.com&bcc=bcc@example.com&subject=Hello%20World&body=This%20is%20a%20test%20email.">
+        Send Email
+    </a>
+</body>
+</html>
+--------------------------------------------
+space and padd  in table
+-------------------------------
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Table with Cell Spacing and Padding</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            text-align: left;
+            border-collapse: separate; /* Important for cellspacing to work */
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px; /* Padding inside cells */
+            border: 1px solid #ccc; /* Border for individual cells */
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tfoot {
+            background-color: #e8f8e8;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Table with Cell Spacing and Padding</h1>
+    <!-- Adding cellspacing and cellpadding attributes -->
+    <table cellspacing="10" cellpadding="5">
+        <!-- Column group -->
+        <colgroup>
+            <col style="background-color: #f9f9f9;">
+            <col style="background-color: #fff;">
+        </colgroup>
+        
+        <!-- Table header -->
+        <thead>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+            </tr>
+        </thead>
+        
+        <!-- Table body -->
+        <tbody>
+            <tr>
+                <td>Row 1, Column 1</td>
+                <td>Row 1, Column 2</td>
+            </tr>
+            <tr>
+                <td>Row 2, Column 1</td>
+                <td>Row 2, Column 2</td>
+            </tr>
+        </tbody>
+        
+        <!-- Table footer -->
+        <tfoot>
+            <tr>
+                <td colspan="2">Footer: Summary or Notes</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+</body></html>
+------------------------------------------
+span in table 
+----------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table with Colspan and Rowspan</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            text-align: center;
+            padding: 10px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Table with Colspan and Rowspan</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Header 1</th>
+                <th colspan="2">Header 2 (Colspan)</th>
+                <th>Header 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1, Column 1</td>
+                <td>Row 1, Column 2</td>
+                <td>Row 1, Column 3</td>
+                <td rowspan="2">Row 1 & 2, Column 4 (Rowspan)</td>
+            </tr>
+            <tr>
+                <td>Row 2, Column 1</td>
+                <td colspan="2">Row 2, Column 2 & 3 (Colspan)</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Row 3 & 4, Column 1 (Rowspan)</td>
+                <td>Row 3, Column 2</td>
+                <td>Row 3, Column 3</td>
+                <td>Row 3, Column 4</td>
+            </tr>
+            <tr>
+                <td colspan="3">Row 4, Column 2, 3 & 4 (Colspan)</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+---------------------------
+table questions
+----------------------------------
+
+1. How do you span three columns in a table header?
+   Answer: Use the colspan attribute in the <th> tag. For example:
+   <table border="1">
+       <tr>
+           <th colspan="3">Header Spanning Three Columns</th>
+       </tr>
+   </table>
+
+2. How do you create a table with alternating row colors without CSS?
+   Answer: Use the bgcolor attribute in the <tr> tag. For example:
+   <table border="1">
+       <tr bgcolor="lightgray">
+           <td>Row 1</td>
+       </tr>
+       <tr bgcolor="white">
+           <td>Row 2</td>
+       </tr>
+   </table>
+
+3. Create an HTML table that displays product information (Name, Price, Quantity). 
+   Merge the header row across three columns.
+   Answer:
+   <table border="1">
+       <tr>
+           <th colspan="3">Product Information</th>
+       </tr>
+       <tr>
+           <th>Name</th>
+           <th>Price</th>
+           <th>Quantity</th>
+       </tr>
+   </table>
+
+4. Create a table that displays employee data with three rows. 
+   Make the first column span two rows.
+   Answer:
+   <table border="1">
+       <tr>
+           <td rowspan="2">Employee Name</td>
+           <td>Department</td>
+           <td>Salary</td>
+       </tr>
+       <tr>
+           <td>HR</td>
+           <td>$5000</td>
+       </tr>
+   </table>
+
+5. Create a table with cells that have different background colors using the bgcolor attribute.
+   Answer:
+   <table border="1">
+       <tr>
+           <td bgcolor="red">Red Cell</td>
+           <td bgcolor="blue">Blue Cell</td>
+       </tr>
+       <tr>
+           <td bgcolor="green">Green Cell</td>
+           <td bgcolor="yellow">Yellow Cell</td>
+       </tr>
+   </table>
+
+--------------------------------
+form 
+----------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form Method Attribute</title>
+</head>
+<body>
+    <form action="eg_form.html" method="post">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="aswathy"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="ammu"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+-----------------
+types in forms
+-------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form</title>
+</head>
+<body>
+
+    <form action="#" method="post">
+        <label>Text: <input type="text" name="text_input" placeholder="Enter text" value="Sample Text"></label><br>
+
+        <label>Password: <input type="password" name="password_input" placeholder="Enter password"></label><br>
+
+        <label>Radio: <input type="radio" name="radio_input" value="option1"> Option 1</label>
+        <label><input type="radio" name="radio_input" value="option2"> Option 2</label><br>
+
+        <label>Checkbox: <input type="checkbox" name="checkbox_input" value="checked"> Check me</label><br>
+
+        <label>Button: <input type="button" value="Click Me"></label><br>
+
+        <label>Color: <input type="color" name="color_input" value="#ff0000"></label><br>
+
+        <label>Email: <input type="email" name="email_input" placeholder="Enter email"></label><br>
+
+        <label>File: <input type="file" name="file_input"></label><br>
+
+        <label>Hidden: <input type="hidden" name="hidden_input" value="hiddenValue"></label>
+
+        <label>Image: <input type="image" name="image_input" src="https://via.placeholder.com/100" alt="Submit Image"></label><br>
+
+        <label>Number: <input type="number" name="number_input" placeholder="Enter number" value="10"></label><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
+--------------------------------------------------
+onclick button  as a input
+-------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Button Examples</title>
+</head>
+<body>
+    <input type="button" value="Click Me" onclick="alert('Button Clicked!')">
+    <br><br>
+    <input type="button" value="Styled Button" style="background-color: blue; color: white; padding: 10px;">
+    <br><br>
+    <input type="button" id="dynamicButton" value="Start" onclick="this.value = 'Stop'">
+</body>
+</html>
+--------------------------------------------
+options
+------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Select Tag</title>
+</head>
+<body>
+
+    <label>Select State :</label>
+    <select>
+        <option>KERALA</option>
+        <option>TAMILNADU</option>
+        <option>ORISSA</option>
+        <option>Andhra Pradesh (Amaravati)</option>
+        <option>Arunachal Pradesh (Itanagar)</option>
+        <option>Bihar (Patna)</option>
+        <option>Assam (Dispur)</option>
+        <option>Chhattisgarh (Raipur)</option>
+        <option>Goa (Panaji)</option>
+    </select>
+
+    <br><br><br><br>
+
+    <form>
+        <label>Language :</label>
+        <select>
+            <option>Choose Language</option>
+            <option>Hindi</option>
+            <option>English</option>
+            <option>Sanskrit</option>
+        </select>
+    </form>
+
+    <br><br><br><br>
+
+    <form>
+        <label for="car">Choose a car :</label>
+        <select id="car" name="carlist">
+            <option value="choose">Choose from list</option>
+            <option value="volvo">Volvo</option>
+            <option value="bmw">BMW</option>
+            <option value="audi">Audi</option>
+        </select>
+    </form>
+
+</body>
+</html>
+--------------------------
+feild set and legend
+--------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form with Fieldset</title>
+</head>
+<body>
+
+    <form>
+        <fieldset>
+            <legend>Personal Information</legend>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+
+        </fieldset>
+
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
+------------------
+question for froms
+------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form</title>
+</head>
+<body>
+
+    <form>
+
+        <label> 
+            <input type="radio" name="title" value="mr"> Mr.
+        </label>
+        <label> 
+            <input type="radio" name="title" value="mrs"> Mrs.
+        </label>
+        <label> 
+            <input type="radio" name="title" value="ms"> Ms.
+        </label>
+
+        <br><br>
+
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" name="first-name" placeholder="First Name">
+
+        <br><br>
+
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" name="last-name" placeholder="Last Name">
+
+        <br><br>
+
+        <label for="mail1">Mail Address1</label>
+        <input type="text" id="mail1" name="mail1">
+
+        <br><br>
+
+        <label for="mail2">Mail Address2</label>
+        <input type="text" id="mail2" name="mail2">
+
+        <br><br>
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city">
+
+        <br><br>
+
+        <label for="state">State</label>
+        <select id="state" name="state">
+            <option value="gujarat">Gujarat</option>
+            <option value="maharashtra">Maharashtra</option>
+            <option value="rajasthan">Rajasthan</option>
+            <option value="delhi">Delhi</option>
+        </select>
+
+        <br><br>
+
+        <label for="zip">Zip</label>
+        <input type="text" id="zip" name="zip">
+
+        <br><br>
+
+        <label for="photo">Upload Photo</label>
+        <input type="file" id="photo" name="photo">
+
+        <br><br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+</body>
+</html>
+-----------------------
+vedio and pdf
+------------------------
+</head>
+<body>
+
+    <h2>Embed a PDF Document</h2>
+    <embed src="Unit-2.pdf" type="application/pdf"
+           width="400" height="200" />
+
+    <h2>Embed a Video</h2>
+    <embed src="html_trial.mp4" type="video/mp4"
+           width="400" height="200" />
+
+</body>
+</html>
+----------------------------
+in frame
+-------------------------
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Iframe - Target for a Link</h2>
+<iframe src="pblm_table9.html" name="iframe_a" height="300px" width="100%" title="Iframe Example"></iframe>
+<p><a href="https://www.wikipedia.org" target="iframe_a">wikipedia.com</a></p>
+<p>When the target attribute of a link matches the name of an iframe, the link will open in the iframe.</p>
+</body>
+</html>
+-----------------------------
+image in that and this side
+-----------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figure and Img Example</title>
+</head>
+<body>
+
+    <h1>Example of Using Both &lt;figure&gt; and &lt;img&gt;</h1>
+
+    <!-- Example 1: Simple image using <img> -->
+    <h2>1. Simple Image:</h2>
+    <img src="simple_image.jpg" alt="A colorful butterfly" width="400">
+
+    <!-- Example 2: Grouped content using <figure> -->
+    <h2>2. Image with a Caption using figure tag</h2>
+    <figure>
+        <img src="butterfly.jpg" alt="A butterfly on a flower" width="400">
+        <figcaption>A butterfly resting on a flower.</figcaption>
+    </figure>
+
+    <!-- Example 3: Another figure with multiple elements -->
+    <h2>3. Diagram with a Caption:</h2>
+    <figure>
+        <img src="network_topology.png" alt="Network topology diagram" width="500">
+        <figcaption>Figure 1: A network topology diagram showing various connections.</figcaption>
+    </figure>
+
+</body>
+</html>
+-----------------------------
+hover   
+------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Example</title>
+    <style>
+        button:hover {
+            background-color: yellow;
+        }
+        h2:hover {
+            background-color: darkolivegreen;
+        }
+    </style>
+</head>
+<body>
+    <button>Hover over me</button>
+    <h2>Hover over this heading</h2>
+</body>
+</html>
+------------------------------
+focus
+---------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EXAMPLE FOR PSEUDO CLASS FOCUS</title>
+    <style type="text/css">
+        input:focus {
+            border: 2px solid yellow;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    First Name: <input type="text" name="fname" id="fname">
+</body>
+</html>
+----------------------------
+active 
+------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+button:active {
+  background-color: darkblue;
+  color: yellow;
+}
+</style>
+</head>
+<body>
+
+<button>Click me!</button>
+
+</body>
+</html>
+------------------------------------
+first child
+---------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EXAMPLE FOR PSEUDO-CLASS FIRST CHILD</title>
+<style type="text/css">
+p:first-child {
+  font-size: 20px;
+  border: 2px solid;
+}
+ul li:first-child {
+  color: #FF0000;
+}
+section p:first-child {
+  margin-top: 20px;
+  background-color: #660033;
+}
+div:first-child {
+  background-color: #cc0000;
+}
+</style>
+</head>
+<body>
+</body>
+</html>
+----------------------------
+not
+---------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOT EXAMPLE:</title>
+<style type="text/css">
+p {
+  color: chocolate;
+  font-family: serif;
+}
+:not(p) {
+  color: rosybrown;
+}
+li:not(.olist) {
+  font-size: 20px;
+  color: darkorange;
+}
+.special {
+  border: 2px solid maroon;
+}
+p:not(.special) {
+  color: green;
+}
+</style>
+</head>
+<body>
+
+<h1>heading h1 tag</h1>
+<p>paragraph tag</p>
+<p class="special">p inside div</p>
+<div class="section">section inside div</div>
+<hr>
+<ul>
+  <li>list1</li>
+  <li class="olist">list2</li>
+  <li>list3</li>
+</ul>
+<hr>
+<aside>
+  <h2>inside aside</h2>
+  <p>p inside aside</p>
+</aside>
+<hr>
+<p class="special">p outside all tags</p>
+
+</body>
+</html>
+-------------------
+nth- child
+-----------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nth child in PSEUDO-CLASS</title>
+<style type="text/css">
+p:nth-child(5) {
+  font-size: 20px;
+  background-color: lightgray;
+}
+</style>
+</head>
+<body>
+
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+  <p>Paragraph 3</p>
+  <p>Paragraph 4</p>
+  <p>Paragraph 5</p>
+  <p>Paragraph 6</p>
+  <p>Paragraph 7</p>
+
+</body>
+</html>
+------------------
+nth-child(2n)    Selects every 2nd element                    2, 4, 6, 8, ...
+
+nth-child(2n+1)  Selects every odd element                    1, 3, 5, 7, ...
+
+nth-child(2n+2)  Selects every even element                   2, 4, 6, 8, ...
+
+nth-child(3n)    Selects every 3rd element                    3, 6, 9, 12, ...
+
+nth-child(3n+1)  Selects every 3rd element starting from 1st  1, 4, 7, 10, ...
+
+nth-child(4n+2)  Selects every 4th element starting from 2nd  2, 6, 10, 14, ...
+---------------------------
+nth last child 
+----------------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EXAMPLE FOR nth-last-child</title>
+<style type="text/css">
+p:nth-last-child(2) {
+  background-color: red;
+}
+h2:nth-last-child(2n+1) {
+  background-color: green;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+  <p>Paragraph 3</p>
+  <p>Paragraph 4</p>
+  <p>Paragraph 5</p>
+
+  <h2>Heading 1</h2>
+  <h2>Heading 2</h2>
+  <h2>Heading 3</h2>
+  <h2>Heading 4</h2>
+  <h2>Heading 5</h2>
+
+</body>
+</html>
+----------------------------
+backroud padd
+-------------
+button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #4CAF50;
+}
+---------------
+universal elector *
+-------------
+---------------
+backround with classs 
+--------------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EXAMPLE FOR CLASS SELECTOR</title>
+<style type="text/css">
+.lbip {
+  padding: 10px;
+  color: cornflowerblue;
+  font-weight: bold;
+  background-color: yellow;
+  border: 10px solid gray;
+}
+</style>
+</head>
+<body>
+
+<button class="lbip">click here!</button>
+
+<hr>
+<p class="lbip">class attribute can be applied to various tags.allowing
+multiple elements to share a common class</p>
+<hr>
+
+<h2 class="lbip">UNITED STATES</h2>
+
+</body>
+</html>
+--------------------------
+multi class 
+-----------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EXAMPLE FOR multiple class selectors</title>
+<style type="text/css">.red.blue {
+  background-color: lightgoldenrodyellow;
+}
+</style>
+</head>
+<body>
+
+<p class="red blue">multiple class selector</p>
+<hr>
+
+<h3 class="red">welcome to the world</h3>
+
+</body>
+</html>
+------------------------
+attribute
+------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EXAMPLE FOR ATTRIBUTE Ends With Selector</title>
+<style type="text/css">
+img[src$=".jpg"] {
+  border: 5px solid black;
+}
+</style>
+</head>
+<body>
+
+<img src="cari.jpg" alt="Photo" width="200px" height="200px">
+<img src="d6aRT.png" alt="Graphic" width="200px" height="200px">
+<img src="bird.jpg" alt="Photo" width="200px" height="200px">
+
+</body>
+</html>
+---------------
+abbr
+------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EXAMPLE OF DIV TAG</title>
+</head>
+<body>
+
+<h3>trial of div tag</h3>
+
+<div>
+  <h3>inside div tag h3</h3>
+  <p>inside div tag p</p>
+  <abbr title="Hyper Text Markup Language">HTML</abbr>
+</div>
+
+</body>
+</html>
+-----------------
+code
+----------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EXAMPLE FOR DIV IN FORM</title>
+</head>
+<body>
+
+<div style="background-color: green; width: 300px; height: 250px; border-radius: 10px; text-align: center;">
+  <h3>Login</h3>
+  <form>
+    <div>
+      <input type="text" name="uname" id="uanme" placeholder="Username" size="20"><br>
+      <input type="password" name="upwd" id="upwd" placeholder="password" size="20">
+    </div>
+    <div>
+      <input type="submit" name="login" id="login" value="login">
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
+--------------------
+li ui lol 
+------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EXAMPLE FOR NAV LAYOUT</title>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+</nav>
+
+</body>
+</html>
+-------------
+article
+-------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EXAMPLE FOR ARTICLE LAYOUT</title>
+</head>
+<body>
+
+<article>
+  <h2>Understanding the HTML Article Tag</h2>
+  <p>
+    Posted on <time datetime="2024-06-20">June 20, 2024</time> by Farhan
+  </p>
+  <p>
+    The article tag is commonly used for content such as blog posts, news articles, and user comments.
+  </p>
+</article>
+
+<h4>OR</h4>
+
+<article>
+  <header>
+    <h1>Breaking News: Technology Advancements in AI</h1>
+    <p><time datetime="2025-01-16">January 16, 2025</time> | By Jane Doe</p>
+  </header>
+  <p>Artificial intelligence has reached new heights with the introduction of next-generation AI systems...</p>
+  <footer>
+    <p>Tags: <a href="#">AI</a>, <a href="#">Technology</a></p>
+  </footer>
+</article>
+
+<h4>OR</h4>
+
+<article>
+  <h2>Google Chrome</h2>
+  <p>Google Chrome is a web browser developed by Google, released in 2008. Chrome is the world's most popular web browser today!</p>
+</article>
+
+<article>
+  <h2>Mozilla Firefox</h2>
+  <p>Mozilla Firefox is an open-source web browser developed by Mozilla. Firefox has been the second most popular web browser since January, 2018.</p>
+</article>
+
+</body>
+</html>
+-------------
+aside
+------------
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aside Example</title>
+</head>
+<body>
+
+<aside>
+  <h3>Related Articles</h3>
+  <ul>
+    <li><a href="#css-tutorial">CSS Basics</a></li>
+    <li><a href="#js-tutorial">JavaScript for Beginners</a></li>
+  </ul>
+</aside>
+
+</body>
+</html>
+--------------
+main
+-------------
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXAMPLE FOR MAIN TAG</title>
+</head>
+<body>
+
+  <header>
+    <h1>My Blog</h1>
+  </header>
+
+  <main>
+    <article>
+      <h2>Learning HTML</h2>
+      <p>HTML is the standard markup language for Web pages.</p>
+    </article>
+
+    <article>
+      <h2>What is CSS?</h2>
+      <p>CSS is the language we use to style an HTML document.</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>Stay tuned for more tutorials!</p>
+  </footer>
+
+</body>
+</html>
+--------------------------
+contact details
+-------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Details</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+.container {
+  width: 400px;
+  margin: 50px auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+input[type="submit"] {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Contact Details</h2>
+  <p>Please enter your personal details:</p>
+
+  <form>
+    <label for="firstName">First name:*</label>
+    <input type="text" id="firstName" name="firstName" required>
+
+    <label for="lastName">Last name:*</label>
+    <input type="text" id="lastName" name="lastName" required>
+
+    <label for="streetAddress">Street address:</label>
+    <input type="text" id="streetAddress" name="streetAddress">
+
+    <label for="townCity">Town/city:</label>
+    <input type="text" id="townCity" name="townCity">
+
+    <label for="postcodeZip">Postcode/zip:</label>
+    <input type="text" id="postcodeZip" name="postcodeZip">
+
+    <label for="telephone">Telephone:</label>
+    <input type="tel" id="telephone" name="telephone">
+
+    <label for="mobile">Mobile:</label>
+    <input type="tel" id="mobile" name="mobile">
+
+    <label for="emailAddress">Email address:*</label>
+    <input type="email" id="emailAddress" name="emailAddress" required>
+
+    <p style="font-size: 12px;">Fields marked * are required.</p>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>
+--------------------
+booo title authot label div
+--------------------------
+<html><head>
+<title>Book Details</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+.container {
+  width: 300px;
+  margin: 50px auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.genre-group {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+input[type="radio"] {
+  margin-right: 5px;
+}
+input[type="submit"] {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <form>
+    <label for="bookTitle">Book title</label>
+    <input type="text" id="bookTitle" name="bookTitle" value="Othello">
+
+    <label for="author">Author</label>
+    <input type="text" id="author" name="author" value="Shakespeare" placeholder="nithni">
+
+    <label><input type="checkbox" name="inStore" checked=""> In store</label>
+
+    <label>Genre</label>
+    <div class="genre-group">
+      <label><input type="checkbox"> Poetry</label>
+      <label><input type="radio" name="genre" value="horror"> Horror</label>
+      <label><input type="radio" name="genre" value="shortStory"> Short Story</label>
+      <label><input type="radio" name="genre" value="fantasy"> Fantasy</label>
+      <label><input type="radio" name="genre" value="drama"> Drama</label>
+      <label><input type="radio" name="genre" value="tragedy" checked=""> Tragedy</label>
+    </div>
+
+    <input type="submit" value="Apply">
+  </form>
+</div>
+
+
+</body></html>
+-----------------------
+Here are the block-level elements in HTML:
+
+<address> <article> <aside> <blockquote> <canvas> <dd>
+
+<div> <dl> <dt> <fieldset> <figcaption> <figure>
+
+<footer> <form> <h1>-<h6> <header> <hr> <li>
+
+<main> <nav> <noscript> <ol> <p> <pre>   
+
+<section> <table> <tfoot> <ul> <video>   
+
+----------------------------------------
+box inside
+--------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXAMPLE OF BLOCK ELEMENT</title>
+</head>
+<body>
+
+  <p>This is a block element.</p>
+
+  <p style="border: 2px solid black;">This is another paragraph that starts on a new line.</p>
+
+  <hr>
+
+  <ul style="border: 2px solid black;">
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+
+  <ol style="border: 2px solid black;">
+    <li>Step 1</li>
+    <li>Step 2</li>
+  </ol>
+
+  <hr>
+
+  <h1 style="border: 2px solid black;">This is a level 1 heading</h1>
+  <h2>This is a level 2 heading</h2>
+
+  <hr>
+
+</body>
+</html>
+-----------------------------------
+span and image next to text
+--------------------
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXAMPLE FOR INLINE ELEMENT</title>
+</head>
+<body>
+
+  <p>This is a <span style="color: red;">highlighted</span> word in a paragraph.</p>
+
+  <hr>
+
+  <p>Click <a href="https://example.com">here</a> to visit the website.</p>
+
+  <hr>
+
+  <p>This is a <strong style="border: 2px solid black;">bold</strong> word.</p>
+
+  <hr>
+
+  <p>This is an inline image: <img src="image.jpg" alt="Example Image" width="50"></p>
+
+</body>
+</html>
+------------------------------
+backround image
+--------------------
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Background Image</h2>
+
+<p>A background image for a p element:</p>
+
+<p style="background-image: url('cari.jpg');">
+You can specify background images<br>for any visible HTML element.<br>In this example, the background image<br>is specified for a p element.<br>
+</p>
+
+<hr>
+
+<div style="background-image: url('https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'); height: 365px">
+</div>
+
+</body>
+</html>
+-----------------
+backroung img position
+----------------------
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXAMPLE FOR BACKGROUND-POSITION</title>
+</head>
+<body>
+
+  <div style="background-image: url('image.jpg'); background-position: 50% 50%; background-repeat: no-repeat; width: 300px; height: 200px;"></div>
+
+  <hr>
+
+  <div style="background-image: url(https://cdn-icons-png.flaticon.com/512/123/123261.png); background-color: cyan; background-position: bottom top; background-repeat: no-repeat; height: 820px;"></div>
+
+</body>
+</html>
+--------------------------
+margin
+-------------------
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXAMPLE OF MARGIN</title>
+</head>
+<body>
+
+  <p style="margin: 40px;">hello world</p>
+  <hr>
+
+  <p style="margin: 20px 10px;">2 sides</p>
+  <hr>
+
+  <p style="margin: 80px 40px;">example for margin 2 values</p>
+  <hr>
+
+</body>
+</html>
+-----------------------------
+padding
+---------------------
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXAMPLE FOR STYLE TAG PADDING</title>
+</head>
+<body>
+
+  <div style="padding: 40px; background-color: cyan; width: 200px; height: 200px;">
+    <div style="background-color: red; width: 50px; height: 50px;"></div>
+  </div>
+
+  <hr>
+
+  <p style="padding: 80px; background-color: cyan; width: 200px; height: 200px;">padding example</p>
+
+</body>
+</html>
+---------------------
+text lines
+-------------
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXAMPLE STYLE TEXT-DECORATION</title>
+</head>
+<body>
+
+  <p style="text-decoration: underline; color: blue;">
+    This is underlined text.
+  </p>
+
+  <hr>
+
+  <p style="text-decoration: overline; color: green;">
+    This text has an overline.
+  </p>
+
+  <hr>
+
+  <p style="text-decoration: line-through; color: red;">
+    This text has a line through it.
+  </p>
+
+</body>
+</html>
+-----------------
+text shadow
+--------------------
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EXAMPLE FOR SYTLE TEXT-SHADOW</title>
+</head>
+<body>
+
+  <h1 style="text-shadow: 2px 2px 5px gray;">
+    Simple Shadow Example
+  </h1>
+
+  <hr>
+
+  <h1 style="text-shadow: 2px 2px 4px gray, -2px 2px 4px lightblue;">
+    Multiple Shadows Example
+  </h1>
+
+  <hr>
+
+  <p style="text-shadow: 5px 2px gray; text-align: center; padding: 20px 0; border: 1px solid red; font-size: 32px;">
+    This is a paragraph aligned center
+  </p>
+
+</body>
+</html>
+-----------------
+1. Text and Font Properties
+
+color: Sets the text color (e.g., color: red;)
+font-size: Defines the size of the font (e.g., font-size: 16px;)
+font-family: Specifies the font type (e.g., font-family: Arial, sans-serif;)
+font-style: Sets the style of the font (e.g., font-style: italic;)
+font-weight: Specifies the weight of the font (e.g., font-weight: bold;)
+letter-spacing: Adjusts space between letters (e.g., letter-spacing: 2px;)
+line-height: Sets the height of lines (e.g., line-height: 1.5;)
+text-align: Aligns text (e.g., text-align: center;)
+text-decoration: Adds decoration to text (e.g., text-decoration: underline;)
+text-transform: Transforms text case (e.g., text-transform: uppercase;)
+white-space: Controls text wrapping (e.g., white-space: nowrap;)
+word-spacing: Sets space between words (e.g., word-spacing: 5px;)
+2. Background Properties
+
+background-color: Sets the background color (e.g., background-color: yellow;)
+background-image: Sets a background image (e.g., background-image: url('image.jpg');)
+background-position: Sets the position of the background image (e.g., background-position: center;)
+background-size: Specifies the size of the background image (e.g., background-size: cover;)
+background-repeat: Defines if/how the background image is repeated (e.g., background-repeat: no-repeat;)
+background-attachment: Sets whether the background image is fixed or scrolls (e.g., background-attachment: fixed;)
+
+3. Box Model Properties
+
+margin: Sets the margin outside the element (e.g., margin: 10px;)
+padding: Sets the padding inside the element (e.g., padding: 10px;)
+border: Defines the border (e.g., border: 1px solid black;)
+border-radius: Rounds the corners of an element (e.g., border-radius: 5px;)
+width: Specifies the width of the element (e.g., width: 100px;)
+height: Specifies the height of the element (e.g., height: 100px;)
+4. Positioning and Layout Properties
+
+display: Defines the display type (e.g., display: block;)
+position: Sets the positioning method (e.g., position: relative;)
+top, right, bottom, left: Specifies offsets (e.g., top: 10px;)
+z-index: Sets the stack order (e.g., z-index: 10;)
+overflow: Handles overflow content (e.g., overflow: hidden;)
+float: Floats an element (e.g., float: left;)
+clear: Clears floating elements (e.g., clear: both;)
+5. Flexbox Properties
+
+flex: Sets flexible length (e.g., flex: 1;)
+justify-content: Aligns items horizontally (e.g., justify-content: center;)
+align-items: Aligns items vertically (e.g., align-items: flex-start;)
+flex-direction: Sets the direction of the flex container (e.g., flex-direction: row;)
+flex-wrap: Specifies whether items should wrap (e.g., flex-wrap: wrap;)
+-----------------------------
+iframe
+=-------------------
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Iframe - Target for a Link</h2>
+
+<iframe src="pblm_table9.html" name="iframe_a" height="300px" width="100%" title="Iframe Example"></iframe>
+
+<p><a href="https://www.wikipedia.org" target="iframe_a">wikipedia.com</a></p>
+
+<p>When the target attribute of a link matches the name of an iframe, the link will open in the iframe.</p>
+
+</body>
+</html>
+------------
+
+<body>
+
+<header>
+
+<h1>My Website</h1>
+
+</header>
+
+<nav>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#">About</a></li>
+
+<li><a href="#">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<section>
+
+<h2>Welcome</h2>
+
+<p>This section contains the main content of the page.</p>
+
+</section>
+
+<footer>
+
+<p>&copy; 2025 My Website</p>
+
+</footer>
+
+</body>
+all withiout div--------------\
+--------------------------------
+quesyions
+------------------------------------
+1. Create a button with a yellow background, black text, and a shadow effect using the style attribute.
+   
+   Answer:
+   ```html
+   <button style="background-color: yellow; color: black; text-shadow: 2px 2px 5px gray;">Click Me</button>
+   ```
+
+2. Create a table with borders, padding, and alternating row colors.
+   
+   Answer:
+   ```html
+   <table style="border-collapse: collapse; width: 100%;">
+       <tr style="background-color: lightgray;">
+           <th style="border: 1px solid black; padding: 10px;">Header 1</th>
+           <th style="border: 1px solid black; padding: 10px;">Header 2</th>
+       </tr>
+       <tr>
+           <td style="border: 1px solid black; padding: 10px;">Data 1</td>
+           <td style="border: 1px solid black; padding: 10px;">Data 2</td>
+       </tr>
+       <tr style="background-color: lightgray;">
+           <td style="border: 1px solid black; padding: 10px;">Data 3</td>
+           <td style="border: 1px solid black; padding: 10px;">Data 4</td>
+       </tr>
+   </table>
+   ```
+
+3. Create a heading (h2) that is center-aligned and bold using the style attribute.
+   
+   Answer:
+   ```html
+   <h2 style="text-align: center; font-weight: bold;">Centered and Bold Heading</h2>
+   ```
+
+4. Create a paragraph with a 2-pixel solid black border and a margin of 15 pixels on all sides.
+   
+   Answer:
+   ```html
+   <p style="border: 2px solid black; margin: 15px;">This is a paragraph with a border and margin.</p>
+   ```
+
+5. Create a paragraph with italic text, a green color, and a text shadow.
+   
+   Answer:
+   ```html
+   <p style="font-style: italic; color: green; text-shadow: 1px 1px 3px gray;">This is an italic green paragraph with a text shadow.</p>
+   ```
+**Questions and Answers**
+
+1. **How can you create a button with a yellow background, black text, and a shadow effect using the style attribute?**
+   - You can use the `<button>` tag with inline CSS styling:
+     ```html
+     <button style="background-color: yellow; color: black; text-shadow: 2px 2px 4px gray;">Click Me</button>
+     ```
+
+2. **How can you create a table with borders, padding, and alternating row colors?**
+   - You can use the `<table>` tag along with CSS styles:
+     ```html
+     <table border="1" style="border-collapse: collapse;">
+       <tr style="background-color: lightgray;"><td>Row 1</td></tr>
+       <tr><td>Row 2</td></tr>
+       <tr style="background-color: lightgray;"><td>Row 3</td></tr>
+     </table>
+     ```
+
+3. **How do you create a center-aligned, bold heading using the style attribute?**
+   - You can use the `<h2>` tag with CSS:
+     ```html
+     <h2 style="text-align: center; font-weight: bold;">My Heading</h2>
+     ```
+
+4. **How can you create a paragraph with a 2-pixel solid black border and a margin of 15 pixels?**
+   - Use the `<p>` tag with inline CSS:
+     ```html
+     <p style="border: 2px solid black; margin: 15px;">This is a paragraph.</p>
+     ```
+
+5. **How do you create a paragraph with italic text, green color, and a text shadow?**
+   - Use the `<p>` tag with inline CSS:
+     ```html
+     <p style="font-style: italic; color: green; text-shadow: 2px 2px 4px gray;">Styled Text</p>
+     ```
+
+6. **How do you create a heading with centered text alignment?**
+   - Use the `<h1>` or `<h2>` tag with CSS:
+     ```html
+     <h1 style="text-align: center;">Welcome to My Website</h1>
+     ```
+
+7. **How do you set the font size and family for a paragraph?**
+   - Use the `<p>` tag with CSS:
+     ```html
+     <p style="font-size: 18px; font-family: Arial;">This is a paragraph.</p>
+     ```
+
+8. **How do you resize an image to 200px by 150px?**
+   - Use the `<img>` tag with width and height attributes:
+     ```html
+     <img src="image.jpg" style="width: 200px; height: 150px;">
+     ```
+
+9. **How can you add letter spacing of 5px to a paragraph?**
+   - Use the `<p>` tag with CSS:
+     ```html
+     <p style="letter-spacing: 5px;">Spacing Example</p>
+     ```
+
+10. **How do you increase the line height of a paragraph for better readability?**
+    - Use the `<p>` tag with CSS:
+      ```html
+      <p style="line-height: 1.8;">This paragraph has better readability.</p>
+      ```
+
+11. **How do you apply a text shadow effect to a heading?**
+    - Use the `<h1>` tag with CSS:
+      ```html
+      <h1 style="text-shadow: 3px 3px 4px gray;">Shadow Effect</h1>
+      ```
+
+12. **How can you create an underlined link using text-decoration?**
+    - Use the `<a>` tag with CSS:
+      ```html
+      <a href="#" style="text-decoration: underline;">Click Here</a>
+      ```
+
+**Questions and Answers**
+
+**1. Write HTML code to create a webpage with two sections, one for "About Us" and one for "Contact Us," using <div> tags.**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us & Contact Us</title>
+</head>
+<body>
+    <div>
+        <h2>About Us</h2>
+        <p>Welcome to our website. We provide top-quality services.</p>
+    </div>
+    <div>
+        <h2>Contact Us</h2>
+        <p>Email: contact@example.com</p>
+    </div>
+</body>
+</html>
+```
+
+**2. Write HTML code to create a table inside a <div> showing student names and their grades.**
+
+```html
+<div>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Grade</th>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>Jane</td>
+            <td>B</td>
+        </tr>
+    </table>
+</div>
+```
+
+**3. Write HTML code to display event details, such as "Event Name," "Date," and "Location," inside a table wrapped in a <div>.**
+
+```html
+<div>
+    <table border="1">
+        <tr>
+            <th>Event Name</th>
+            <th>Date</th>
+            <th>Location</th>
+        </tr>
+        <tr>
+            <td>Music Festival</td>
+            <td>June 15, 2024</td>
+            <td>New York</td>
+        </tr>
+    </table>
+</div>
+```
+
+**4. Write HTML code to group two tables, one for "Employees" and another for "Departments," inside a <div>.**
+
+```html
+<div>
+    <h2>Employees</h2>
+    <table border="1">
+        <tr><th>Name</th><th>Position</th></tr>
+        <tr><td>Alice</td><td>Manager</td></tr>
+    </table>
+    <h2>Departments</h2>
+    <table border="1">
+        <tr><th>Department</th><th>Head</th></tr>
+        <tr><td>HR</td><td>Bob</td></tr>
+    </table>
+</div>
+```
+
+**5. Write HTML code to create a table with the heading in one <div> and the table body in another <div>.**
+
+```html
+<div>
+    <h2>Student Grades</h2>
+</div>
+<div>
+    <table border="1">
+        <tr><th>Name</th><th>Grade</th></tr>
+        <tr><td>Tom</td><td>A</td></tr>
+    </table>
+</div>
+```
+
+**6. Create a webpage layout with a header, a horizontal navigation bar, and a content section.**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webpage Layout</title>
+</head>
+<body>
+    <header><h1>Website Header</h1></header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+    <section>
+        <p>Welcome to our website!</p>
+    </section>
+</body>
+</html>
+```
+
+**7. Write HTML code to create a layout with a header, sidebar, main content, and footer.**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webpage Layout</title>
+</head>
+<body>
+    <header><h1>Header</h1></header>
+    <div style="display:flex;">
+        <aside style="width:20%;">Sidebar</aside>
+        <main style="width:60%;">Main Content</main>
+    </div>
+    <footer>Footer</footer>
+</body>
+</html>
+```
+
+**8. Write code for a layout with a header, two content columns, and a footer.**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Two Column Layout</title>
+</head>
+<body>
+    <header><h1>Header</h1></header>
+    <div style="display:flex;">
+        <section style="width:50%;">Column 1</section>
+        <section style="width:50%;">Column 2</section>
+    </div>
+    <footer>Footer</footer>
+</body>
+</html>
+```
+
+**9. Create a form with fields for a username, password, and a "Remember Me" checkbox.**
+
+```html
+<form>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <br>
+    <input type="checkbox" id="remember" name="remember">
+    <label for="remember">Remember Me</label>
+    <br>
+    <button type="submit">Login</button>
+</form>
+```
+
+----------------
+css example
+-------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Example</title>
+  <style>
+    /* Resetting margins and paddings */
+    body, h1, p, ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* General styles */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    /* Header styles */
+    .header {
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    /* Navbar styles */
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+      padding: 10px;
+    }
+
+    .navbar li {
+      margin: 0 15px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: #6a11cb;
+    }
+
+    /* Main content styles */
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Footer styles */
+    .footer {
+      text-align: center;
+      background-color: #333;
+      color: white;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Welcome to My Website</h1>
+  </header>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="content">
+    <p>This is a simple example of using CSS to style a webpage.</p>
+  </main>
+  <footer class="footer">
+    <p>&copy; 2025 My Website</p>
+  </footer>
+</body>
+</html>
+-----------------------------
+
+
+
+
+
+
+
+
+
+
