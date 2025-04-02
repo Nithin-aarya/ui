@@ -1,1979 +1,2207 @@
-<!-- Italic text -->
-<i>Italic</i> 
+# ==================== Stack ====================
 
-<!-- Bold text -->
-<b>Bold</b> 
+## stack using araay
+class Array:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.array = [None] * capacity
+        self.size = 0
+    
+    def insert(self, index, value):
+        if self.size >= self.capacity:
+            raise OverflowError("Array is full")
+        if index < 0 or index > self.size:
+            raise IndexError("Index out of bounds")
+        for i in range(self.size, index, -1):
+            self.array[i] = self.array[i - 1]
+        self.array[index] = value
+        self.size += 1
+    
+    def remove(self, index):
+        if self.size == 0:
+            raise IndexError("Array is empty")
+        if index < 0 or index >= self.size:
+            raise IndexError("Index out of bounds")
+        value = self.array[index]
+        for i in range(index, self.size - 1):
+            self.array[i] = self.array[i + 1]
+        self.array[self.size - 1] = None
+        self.size -= 1
+        return value
+    
+    def get(self, index):
+        if index < 0 or index >= self.size:
+            raise IndexError("Index out of bounds")
+        return self.array[index]
+    
+    def is_empty(self):
+        return self.size == 0
+    
+    def is_full(self):
+        return self.size == self.capacity
+    
+    def __str__(self):
+        return str(self.array[:self.size])
 
-<!-- Emphasized text -->
-<em>Emphasized</em> 
+class Stack:
+    def __init__(self, capacity):
+        self.array = Array(capacity)
+    
+    def push(self, value):
+        if self.array.is_full():
+            raise OverflowError("Stack overflow")
+        self.array.insert(self.array.size, value)
+    
+    def pop(self):
+        if self.array.is_empty():
+            raise IndexError("Stack underflow")
+        return self.array.remove(self.array.size - 1)
+    
+    def peek(self):
+        if self.array.is_empty():
+            return None  
+        return self.array.get(self.array.size - 1)
+    
+    def is_empty(self):
+        return self.array.is_empty()
+    
+    def is_full(self):
+        return self.array.is_full()
+    
+    def __str__(self):
+        return str(self.array)
 
-<!-- Strongly emphasized text (usually bold) -->
-<strong>Strong</strong> 
-
-<!-- Smaller text -->
-<small>small</small> 
-
-<!-- Strikethrough text to indicate deletion -->
-<del>Deleted</del> 
-
-<!-- Underlined text to indicate insertion -->
-<ins>Inserted</ins> 
-
-<!-- Subscript text (e.g., for formulas like V/f) -->
-v<sub>f</sub> 
-
-<!-- Superscript text (e.g., for exponents like a²) -->
-a<sup>2</sup> 
-
-<!-- Highlighted text -->
-<mark>Marked</mark>
-
--------------------------------------
-meta content
------------------------------------
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="Free Online tutorials">
-    <meta http-equiv="refresh" content="5; url=https://www.javatpoint.com/html-tags-list">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -> device
-</head>
-</html>
----------------------------------------
-lists all types
--------------------------------------------------
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ordered and Unordered Lists</title>
-</head>
-<body>
-    <!-- Unordered List -->
-    <h3>Unordered List Examples:</h3>
-    <ul style="list-style-type: disc;">
-        <li>Disc style (default)</li>
-    </ul>
-    <ul style="list-style-type: circle;">
-        <li>Circle style</li>
-    </ul>
-    <ul style="list-style-type: square;">
-        <li>Square style</li>
-    </ul>
-    <ul style="list-style-type: none;">
-        <li>No style</li>
-    </ul>
-
-    <!-- Ordered List -->
-    <h3>Ordered List Examples:</h3>
-    <ol type="1">
-        <li>Type "1"</li>
-    </ol>
-    <ol type="I">
-        <li>Type "I" (uppercase Roman numerals)</li>
-    </ol>
-    <ol type="i">
-        <li>Type "i" (lowercase Roman numerals)</li>
-    </ol>
-    <ol type="A">
-        <li>Type "A" (uppercase alphabet)</li>
-    </ol>
-    <ol type="a">
-        <li>Type "a" (lowercase alphabet)</li>
-    </ol>
-
-    <!-- Reversed and Start Attribute -->
-    <h3>Ordered List with Attributes:</h3>
-    <ol reversed>
-        <li>Reversed order</li>
-    </ol>
-    <ol start="5">
-        <li>Starting at 5</li>
-    </ol>
-
-    <!-- Description List -->
-    <h3>Description List Example:</h3>
-    <dl>
-        <dt>HTML</dt>
-        <dd>A markup language for structuring web pages.</dd>
-        <dt>CSS</dt>
-        <dd>Styles the appearance of web pages.</dd>
-        <dt>JavaScript</dt>
-        <dd>Adds interactivity to web pages.</dd>
-    </dl>
-</body>
-</html>
----------------------------------------
- <font face="Arial" size="4" color="blue">This is Arial font.</font>
-----------------------------------------------
------------------------------------------
- <a href="https://www.example.com" target="_blank(_self)">Visit Example.com</a>
-------------------------------------------
----------------------------------------------
-mail
--------------------------
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Link Example</title>
-</head>
-<body>
-    <h1>Email Link with `mailto:` Attributes</h1>
-    <p>Click the link below to open your default email client:</p>
-
-    <!-- Email link with mailto attributes -->
-    <a href="mailto:example@example.com?cc=cc@example.com&bcc=bcc@example.com&subject=Hello%20World&body=This%20is%20a%20test%20email.">
-        Send Email
-    </a>
-</body>
-</html>
---------------------------------------------
-space and padd  in table
--------------------------------
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Table with Cell Spacing and Padding</title>
-    <style>
-        table {
-            width: 80%;
-            margin: 20px auto;
-            text-align: left;
-            border-collapse: separate; /* Important for cellspacing to work */
-            border: 1px solid #ccc;
-        }
-        th, td {
-            padding: 10px; /* Padding inside cells */
-            border: 1px solid #ccc; /* Border for individual cells */
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        tfoot {
-            background-color: #e8f8e8;
-        }
-    </style>
-</head>
-<body>
-    <h1>HTML Table with Cell Spacing and Padding</h1>
-    <!-- Adding cellspacing and cellpadding attributes -->
-    <table cellspacing="10" cellpadding="5">
-        <!-- Column group -->
-        <colgroup>
-            <col style="background-color: #f9f9f9;">
-            <col style="background-color: #fff;">
-        </colgroup>
+if __name__ == "__main__":
+    stack = Stack(5)
+    stack.push(10)
+    stack.push(20)
+    stack.push(30)
+    print("Stack:", stack)
+    print("Popped element:", stack.pop())
+    print("Stack after pop:", stack)
+    if not stack.is_empty():
+        print("Top element:", stack.peek())
+    else:
+        print("Stack is empty after pop")
         
-        <!-- Table header -->
-        <thead>
-            <tr>
-                <th>Header 1</th>
-                <th>Header 2</th>
-            </tr>
-        </thead>
+    print("-------")
+    print("Stack:", stack)
+    print("Popped element:", stack.pop())
+    print("Stack after pop:", stack)
+    if not stack.is_empty():
+        print("Top element:", stack.peek())
+    else:
+        print("Stack is empty after pop")
         
-        <!-- Table body -->
-        <tbody>
-            <tr>
-                <td>Row 1, Column 1</td>
-                <td>Row 1, Column 2</td>
-            </tr>
-            <tr>
-                <td>Row 2, Column 1</td>
-                <td>Row 2, Column 2</td>
-            </tr>
-        </tbody>
+    print("-------")
+    print("Stack:", stack)
+    print("Popped element:", stack.pop())
+    print("Stack after pop:", stack)
+    if not stack.is_empty():
+        print("Top element:", stack.peek())
+    else:
+        print("Stack is empty after pop")
+
+################################################################################
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+    
+    def insert_at_beginning(self, value):
+        new_node = Node(value)
+        new_node.next = self.head
+        self.head = new_node
+    
+    def remove_from_beginning(self):
+        if self.is_empty():
+            raise IndexError("Stack is empty")
+        value = self.head.value
+        self.head = self.head.next
+        return value
+    
+    def get_first(self):
+        if self.is_empty():
+            return None
+        return self.head.value
+    
+    def is_empty(self):
+        return self.head is None
+    
+    def __str__(self):
+        elements = []
+        current = self.head
+        while current:
+            elements.append(current.value)
+            current = current.next
+        return str(elements)
+
+class Stack:
+    def __init__(self):
+        self.linked_list = LinkedList()
+    
+    def push(self, value):
+        self.linked_list.insert_at_beginning(value)
+    
+    def pop(self):
+        return self.linked_list.remove_from_beginning()
+    
+    def peek(self):
+        return self.linked_list.get_first()
+    
+    def is_empty(self):
+        return self.linked_list.is_empty()
+    
+    def __str__(self):
+        return str(self.linked_list)
+
+if __name__ == "__main__":
+    stack = Stack()
+    stack.push(10)
+    stack.push(20)
+    stack.push(30)
+    print("Stack:", stack)
+    print("Popped element:", stack.pop())
+    print("Stack after pop:", stack)
+    
+    if not stack.is_empty():
+        print("Top element:", stack.peek())
+    else:
+        print("Stack is empty after pop")
         
-        <!-- Table footer -->
-        <tfoot>
-            <tr>
-                <td colspan="2">Footer: Summary or Notes</td>
-            </tr>
-        </tfoot>
-    </table>
-
-
-</body></html>
-------------------------------------------
-span in table 
-----------------------------------------------
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table with Colspan and Rowspan</title>
-    <style>
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #000;
-            text-align: center;
-            padding: 10px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-</head>
-<body>
-    <h1>Table with Colspan and Rowspan</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Header 1</th>
-                <th colspan="2">Header 2 (Colspan)</th>
-                <th>Header 3</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Row 1, Column 1</td>
-                <td>Row 1, Column 2</td>
-                <td>Row 1, Column 3</td>
-                <td rowspan="2">Row 1 & 2, Column 4 (Rowspan)</td>
-            </tr>
-            <tr>
-                <td>Row 2, Column 1</td>
-                <td colspan="2">Row 2, Column 2 & 3 (Colspan)</td>
-            </tr>
-            <tr>
-                <td rowspan="2">Row 3 & 4, Column 1 (Rowspan)</td>
-                <td>Row 3, Column 2</td>
-                <td>Row 3, Column 3</td>
-                <td>Row 3, Column 4</td>
-            </tr>
-            <tr>
-                <td colspan="3">Row 4, Column 2, 3 & 4 (Colspan)</td>
-            </tr>
-        </tbody>
-    </table>
-</body>
-</html>
----------------------------
-table questions
-----------------------------------
-
-1. How do you span three columns in a table header?
-   Answer: Use the colspan attribute in the <th> tag. For example:
-   <table border="1">
-       <tr>
-           <th colspan="3">Header Spanning Three Columns</th>
-       </tr>
-   </table>
-
-2. How do you create a table with alternating row colors without CSS?
-   Answer: Use the bgcolor attribute in the <tr> tag. For example:
-   <table border="1">
-       <tr bgcolor="lightgray">
-           <td>Row 1</td>
-       </tr>
-       <tr bgcolor="white">
-           <td>Row 2</td>
-       </tr>
-   </table>
-
-3. Create an HTML table that displays product information (Name, Price, Quantity). 
-   Merge the header row across three columns.
-   Answer:
-   <table border="1">
-       <tr>
-           <th colspan="3">Product Information</th>
-       </tr>
-       <tr>
-           <th>Name</th>
-           <th>Price</th>
-           <th>Quantity</th>
-       </tr>
-   </table>
-
-4. Create a table that displays employee data with three rows. 
-   Make the first column span two rows.
-   Answer:
-   <table border="1">
-       <tr>
-           <td rowspan="2">Employee Name</td>
-           <td>Department</td>
-           <td>Salary</td>
-       </tr>
-       <tr>
-           <td>HR</td>
-           <td>$5000</td>
-       </tr>
-   </table>
-
-5. Create a table with cells that have different background colors using the bgcolor attribute.
-   Answer:
-   <table border="1">
-       <tr>
-           <td bgcolor="red">Red Cell</td>
-           <td bgcolor="blue">Blue Cell</td>
-       </tr>
-       <tr>
-           <td bgcolor="green">Green Cell</td>
-           <td bgcolor="yellow">Yellow Cell</td>
-       </tr>
-   </table>
-
---------------------------------
-form 
-----------------------------
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Form Method Attribute</title>
-</head>
-<body>
-    <form action="eg_form.html" method="post">
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname" value="aswathy"><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" value="ammu"><br><br>
-        <input type="submit" value="Submit">
-    </form>
-</body>
-</html>
------------------
-types in forms
--------------------------------------
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Form</title>
-</head>
-<body>
-
-    <form action="#" method="post">
-        <label>Text: <input type="text" name="text_input" placeholder="Enter text" value="Sample Text"></label><br>
-
-        <label>Password: <input type="password" name="password_input" placeholder="Enter password"></label><br>
-
-        <label>Radio: <input type="radio" name="radio_input" value="option1"> Option 1</label>
-        <label><input type="radio" name="radio_input" value="option2"> Option 2</label><br>
-
-        <label>Checkbox: <input type="checkbox" name="checkbox_input" value="checked"> Check me</label><br>
-
-        <label>Button: <input type="button" value="Click Me"></label><br>
-
-        <label>Color: <input type="color" name="color_input" value="#ff0000"></label><br>
-
-        <label>Email: <input type="email" name="email_input" placeholder="Enter email"></label><br>
-
-        <label>File: <input type="file" name="file_input"></label><br>
-
-        <label>Hidden: <input type="hidden" name="hidden_input" value="hiddenValue"></label>
-
-        <label>Image: <input type="image" name="image_input" src="https://via.placeholder.com/100" alt="Submit Image"></label><br>
-
-        <label>Number: <input type="number" name="number_input" placeholder="Enter number" value="10"></label><br>
-
-        <input type="submit" value="Submit">
-    </form>
-
-</body>
-</html>
---------------------------------------------------
-onclick button  as a input
--------------------------------------
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Button Examples</title>
-</head>
-<body>
-    <input type="button" value="Click Me" onclick="alert('Button Clicked!')">
-    <br><br>
-    <input type="button" value="Styled Button" style="background-color: blue; color: white; padding: 10px;">
-    <br><br>
-    <input type="button" id="dynamicButton" value="Start" onclick="this.value = 'Stop'">
-</body>
-</html>
---------------------------------------------
-options
-------------------------------------
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Select Tag</title>
-</head>
-<body>
-
-    <label>Select State :</label>
-    <select>
-        <option>KERALA</option>
-        <option>TAMILNADU</option>
-        <option>ORISSA</option>
-        <option>Andhra Pradesh (Amaravati)</option>
-        <option>Arunachal Pradesh (Itanagar)</option>
-        <option>Bihar (Patna)</option>
-        <option>Assam (Dispur)</option>
-        <option>Chhattisgarh (Raipur)</option>
-        <option>Goa (Panaji)</option>
-    </select>
-
-    <br><br><br><br>
-
-    <form>
-        <label>Language :</label>
-        <select>
-            <option>Choose Language</option>
-            <option>Hindi</option>
-            <option>English</option>
-            <option>Sanskrit</option>
-        </select>
-    </form>
-
-    <br><br><br><br>
-
-    <form>
-        <label for="car">Choose a car :</label>
-        <select id="car" name="carlist">
-            <option value="choose">Choose from list</option>
-            <option value="volvo">Volvo</option>
-            <option value="bmw">BMW</option>
-            <option value="audi">Audi</option>
-        </select>
-    </form>
-
-</body>
-</html>
---------------------------
-feild set and legend
---------------------------------
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Form with Fieldset</title>
-</head>
-<body>
-
-    <form>
-        <fieldset>
-            <legend>Personal Information</legend>
-
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-
-            <br><br>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
-
-        </fieldset>
-
-        <br>
-
-        <button type="submit">Submit</button>
-    </form>
-
-</body>
-</html>
-------------------
-question for froms
-------------------------------
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Form</title>
-</head>
-<body>
-
-    <form>
-
-        <label> 
-            <input type="radio" name="title" value="mr"> Mr.
-        </label>
-        <label> 
-            <input type="radio" name="title" value="mrs"> Mrs.
-        </label>
-        <label> 
-            <input type="radio" name="title" value="ms"> Ms.
-        </label>
-
-        <br><br>
-
-        <label for="first-name">First Name</label>
-        <input type="text" id="first-name" name="first-name" placeholder="First Name">
-
-        <br><br>
-
-        <label for="last-name">Last Name</label>
-        <input type="text" id="last-name" name="last-name" placeholder="Last Name">
-
-        <br><br>
-
-        <label for="mail1">Mail Address1</label>
-        <input type="text" id="mail1" name="mail1">
-
-        <br><br>
-
-        <label for="mail2">Mail Address2</label>
-        <input type="text" id="mail2" name="mail2">
-
-        <br><br>
-
-        <label for="city">City</label>
-        <input type="text" id="city" name="city">
-
-        <br><br>
-
-        <label for="state">State</label>
-        <select id="state" name="state">
-            <option value="gujarat">Gujarat</option>
-            <option value="maharashtra">Maharashtra</option>
-            <option value="rajasthan">Rajasthan</option>
-            <option value="delhi">Delhi</option>
-        </select>
-
-        <br><br>
-
-        <label for="zip">Zip</label>
-        <input type="text" id="zip" name="zip">
-
-        <br><br>
-
-        <label for="photo">Upload Photo</label>
-        <input type="file" id="photo" name="photo">
-
-        <br><br>
-
-        <input type="submit" value="Submit">
-
-    </form>
-
-</body>
-</html>
------------------------
-vedio and pdf
-------------------------
-</head>
-<body>
-
-    <h2>Embed a PDF Document</h2>
-    <embed src="Unit-2.pdf" type="application/pdf"
-           width="400" height="200" />
-
-    <h2>Embed a Video</h2>
-    <embed src="html_trial.mp4" type="video/mp4"
-           width="400" height="200" />
-
-</body>
-</html>
-----------------------------
-in frame
--------------------------
-<!DOCTYPE html>
-<html>
-<body>
-<h2>Iframe - Target for a Link</h2>
-<iframe src="pblm_table9.html" name="iframe_a" height="300px" width="100%" title="Iframe Example"></iframe>
-<p><a href="https://www.wikipedia.org" target="iframe_a">wikipedia.com</a></p>
-<p>When the target attribute of a link matches the name of an iframe, the link will open in the iframe.</p>
-</body>
-</html>
------------------------------
-image in that and this side
------------------------
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Figure and Img Example</title>
-</head>
-<body>
-
-    <h1>Example of Using Both &lt;figure&gt; and &lt;img&gt;</h1>
-
-    <!-- Example 1: Simple image using <img> -->
-    <h2>1. Simple Image:</h2>
-    <img src="simple_image.jpg" alt="A colorful butterfly" width="400">
-
-    <!-- Example 2: Grouped content using <figure> -->
-    <h2>2. Image with a Caption using figure tag</h2>
-    <figure>
-        <img src="butterfly.jpg" alt="A butterfly on a flower" width="400">
-        <figcaption>A butterfly resting on a flower.</figcaption>
-    </figure>
-
-    <!-- Example 3: Another figure with multiple elements -->
-    <h2>3. Diagram with a Caption:</h2>
-    <figure>
-        <img src="network_topology.png" alt="Network topology diagram" width="500">
-        <figcaption>Figure 1: A network topology diagram showing various connections.</figcaption>
-    </figure>
-
-</body>
-</html>
------------------------------
-hover   
-------------------------------
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hover Example</title>
-    <style>
-        button:hover {
-            background-color: yellow;
-        }
-        h2:hover {
-            background-color: darkolivegreen;
-        }
-    </style>
-</head>
-<body>
-    <button>Hover over me</button>
-    <h2>Hover over this heading</h2>
-</body>
-</html>
-------------------------------
-focus
----------------------------
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EXAMPLE FOR PSEUDO CLASS FOCUS</title>
-    <style type="text/css">
-        input:focus {
-            border: 2px solid yellow;
-            outline: none;
-        }
-    </style>
-</head>
-<body>
-    First Name: <input type="text" name="fname" id="fname">
-</body>
-</html>
-----------------------------
-active 
-------------------------------
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-button:active {
-  background-color: darkblue;
-  color: yellow;
-}
-</style>
-</head>
-<body>
-
-<button>Click me!</button>
-
-</body>
-</html>
-------------------------------------
-first child
----------------------------
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EXAMPLE FOR PSEUDO-CLASS FIRST CHILD</title>
-<style type="text/css">
-p:first-child {
-  font-size: 20px;
-  border: 2px solid;
-}
-ul li:first-child {
-  color: #FF0000;
-}
-section p:first-child {
-  margin-top: 20px;
-  background-color: #660033;
-}
-div:first-child {
-  background-color: #cc0000;
-}
-</style>
-</head>
-<body>
-</body>
-</html>
-----------------------------
-not
----------------
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NOT EXAMPLE:</title>
-<style type="text/css">
-p {
-  color: chocolate;
-  font-family: serif;
-}
-:not(p) {
-  color: rosybrown;
-}
-li:not(.olist) {
-  font-size: 20px;
-  color: darkorange;
-}
-.special {
-  border: 2px solid maroon;
-}
-p:not(.special) {
-  color: green;
-}
-</style>
-</head>
-<body>
-
-<h1>heading h1 tag</h1>
-<p>paragraph tag</p>
-<p class="special">p inside div</p>
-<div class="section">section inside div</div>
-<hr>
-<ul>
-  <li>list1</li>
-  <li class="olist">list2</li>
-  <li>list3</li>
-</ul>
-<hr>
-<aside>
-  <h2>inside aside</h2>
-  <p>p inside aside</p>
-</aside>
-<hr>
-<p class="special">p outside all tags</p>
-
-</body>
-</html>
--------------------
-nth- child
------------
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>nth child in PSEUDO-CLASS</title>
-<style type="text/css">
-p:nth-child(5) {
-  font-size: 20px;
-  background-color: lightgray;
-}
-</style>
-</head>
-<body>
-
-  <p>Paragraph 1</p>
-  <p>Paragraph 2</p>
-  <p>Paragraph 3</p>
-  <p>Paragraph 4</p>
-  <p>Paragraph 5</p>
-  <p>Paragraph 6</p>
-  <p>Paragraph 7</p>
-
-</body>
-</html>
-------------------
-nth-child(2n)    Selects every 2nd element                    2, 4, 6, 8, ...
-
-nth-child(2n+1)  Selects every odd element                    1, 3, 5, 7, ...
-
-nth-child(2n+2)  Selects every even element                   2, 4, 6, 8, ...
-
-nth-child(3n)    Selects every 3rd element                    3, 6, 9, 12, ...
-
-nth-child(3n+1)  Selects every 3rd element starting from 1st  1, 4, 7, 10, ...
-
-nth-child(4n+2)  Selects every 4th element starting from 2nd  2, 6, 10, 14, ...
----------------------------
-nth last child 
-----------------------
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EXAMPLE FOR nth-last-child</title>
-<style type="text/css">
-p:nth-last-child(2) {
-  background-color: red;
-}
-h2:nth-last-child(2n+1) {
-  background-color: green;
-  color: white;
-}
-</style>
-</head>
-<body>
-
-  <p>Paragraph 1</p>
-  <p>Paragraph 2</p>
-  <p>Paragraph 3</p>
-  <p>Paragraph 4</p>
-  <p>Paragraph 5</p>
-
-  <h2>Heading 1</h2>
-  <h2>Heading 2</h2>
-  <h2>Heading 3</h2>
-  <h2>Heading 4</h2>
-  <h2>Heading 5</h2>
-
-</body>
-</html>
-----------------------------
-backroud padd
--------------
-button {
-  padding: 10px 20px;
-  border-radius: 5px;
-  background-color: #4CAF50;
-}
----------------
-universal elector *
--------------
----------------
-backround with classs 
---------------------
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EXAMPLE FOR CLASS SELECTOR</title>
-<style type="text/css">
-.lbip {
-  padding: 10px;
-  color: cornflowerblue;
-  font-weight: bold;
-  background-color: yellow;
-  border: 10px solid gray;
-}
-</style>
-</head>
-<body>
-
-<button class="lbip">click here!</button>
-
-<hr>
-<p class="lbip">class attribute can be applied to various tags.allowing
-multiple elements to share a common class</p>
-<hr>
-
-<h2 class="lbip">UNITED STATES</h2>
-
-</body>
-</html>
---------------------------
-multi class 
------------------
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EXAMPLE FOR multiple class selectors</title>
-<style type="text/css">.red.blue {
-  background-color: lightgoldenrodyellow;
-}
-</style>
-</head>
-<body>
-
-<p class="red blue">multiple class selector</p>
-<hr>
-
-<h3 class="red">welcome to the world</h3>
-
-</body>
-</html>
-------------------------
-attribute
-------------
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EXAMPLE FOR ATTRIBUTE Ends With Selector</title>
-<style type="text/css">
-img[src$=".jpg"] {
-  border: 5px solid black;
-}
-</style>
-</head>
-<body>
-
-<img src="cari.jpg" alt="Photo" width="200px" height="200px">
-<img src="d6aRT.png" alt="Graphic" width="200px" height="200px">
-<img src="bird.jpg" alt="Photo" width="200px" height="200px">
-
-</body>
-</html>
----------------
-abbr
-------------
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EXAMPLE OF DIV TAG</title>
-</head>
-<body>
-
-<h3>trial of div tag</h3>
-
-<div>
-  <h3>inside div tag h3</h3>
-  <p>inside div tag p</p>
-  <abbr title="Hyper Text Markup Language">HTML</abbr>
-</div>
-
-</body>
-</html>
------------------
-code
-----------
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EXAMPLE FOR DIV IN FORM</title>
-</head>
-<body>
-
-<div style="background-color: green; width: 300px; height: 250px; border-radius: 10px; text-align: center;">
-  <h3>Login</h3>
-  <form>
-    <div>
-      <input type="text" name="uname" id="uanme" placeholder="Username" size="20"><br>
-      <input type="password" name="upwd" id="upwd" placeholder="password" size="20">
-    </div>
-    <div>
-      <input type="submit" name="login" id="login" value="login">
-    </div>
-  </form>
-</div>
-
-</body>
-</html>
---------------------
-li ui lol 
-------------
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EXAMPLE FOR NAV LAYOUT</title>
-</head>
-<body>
-
-<nav>
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Contact Us</a></li>
-  </ul>
-</nav>
-
-</body>
-</html>
--------------
-article
--------------
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EXAMPLE FOR ARTICLE LAYOUT</title>
-</head>
-<body>
-
-<article>
-  <h2>Understanding the HTML Article Tag</h2>
-  <p>
-    Posted on <time datetime="2024-06-20">June 20, 2024</time> by Farhan
-  </p>
-  <p>
-    The article tag is commonly used for content such as blog posts, news articles, and user comments.
-  </p>
-</article>
-
-<h4>OR</h4>
-
-<article>
-  <header>
-    <h1>Breaking News: Technology Advancements in AI</h1>
-    <p><time datetime="2025-01-16">January 16, 2025</time> | By Jane Doe</p>
-  </header>
-  <p>Artificial intelligence has reached new heights with the introduction of next-generation AI systems...</p>
-  <footer>
-    <p>Tags: <a href="#">AI</a>, <a href="#">Technology</a></p>
-  </footer>
-</article>
-
-<h4>OR</h4>
-
-<article>
-  <h2>Google Chrome</h2>
-  <p>Google Chrome is a web browser developed by Google, released in 2008. Chrome is the world's most popular web browser today!</p>
-</article>
-
-<article>
-  <h2>Mozilla Firefox</h2>
-  <p>Mozilla Firefox is an open-source web browser developed by Mozilla. Firefox has been the second most popular web browser since January, 2018.</p>
-</article>
-
-</body>
-</html>
--------------
-aside
-------------
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Aside Example</title>
-</head>
-<body>
-
-<aside>
-  <h3>Related Articles</h3>
-  <ul>
-    <li><a href="#css-tutorial">CSS Basics</a></li>
-    <li><a href="#js-tutorial">JavaScript for Beginners</a></li>
-  </ul>
-</aside>
-
-</body>
-</html>
---------------
-main
--------------
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EXAMPLE FOR MAIN TAG</title>
-</head>
-<body>
-
-  <header>
-    <h1>My Blog</h1>
-  </header>
-
-  <main>
-    <article>
-      <h2>Learning HTML</h2>
-      <p>HTML is the standard markup language for Web pages.</p>
-    </article>
-
-    <article>
-      <h2>What is CSS?</h2>
-      <p>CSS is the language we use to style an HTML document.</p>
-    </article>
-  </main>
-
-  <footer>
-    <p>Stay tuned for more tutorials!</p>
-  </footer>
-
-</body>
-</html>
---------------------------
-contact details
--------------------------
-<!DOCTYPE html>
-<html>
-<head>
-<title>Contact Details</title>
-<style>
-body {
-  font-family: sans-serif;
-}
-.container {
-  width: 400px;
-  margin: 50px auto;
-  border: 1px solid #ccc;
-  padding: 20px;
-}
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-input[type="text"],
-input[type="email"],
-input[type="tel"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-}
-input[type="submit"] {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-</style>
-</head>
-<body>
-
-<div class="container">
-  <h2>Contact Details</h2>
-  <p>Please enter your personal details:</p>
-
-  <form>
-    <label for="firstName">First name:*</label>
-    <input type="text" id="firstName" name="firstName" required>
-
-    <label for="lastName">Last name:*</label>
-    <input type="text" id="lastName" name="lastName" required>
-
-    <label for="streetAddress">Street address:</label>
-    <input type="text" id="streetAddress" name="streetAddress">
-
-    <label for="townCity">Town/city:</label>
-    <input type="text" id="townCity" name="townCity">
-
-    <label for="postcodeZip">Postcode/zip:</label>
-    <input type="text" id="postcodeZip" name="postcodeZip">
-
-    <label for="telephone">Telephone:</label>
-    <input type="tel" id="telephone" name="telephone">
-
-    <label for="mobile">Mobile:</label>
-    <input type="tel" id="mobile" name="mobile">
-
-    <label for="emailAddress">Email address:*</label>
-    <input type="email" id="emailAddress" name="emailAddress" required>
-
-    <p style="font-size: 12px;">Fields marked * are required.</p>
-
-    <input type="submit" value="Submit">
-  </form>
-</div>
-
-</body>
-</html>
---------------------
-booo title authot label div
---------------------------
-<html><head>
-<title>Book Details</title>
-<style>
-body {
-  font-family: sans-serif;
-}
-.container {
-  width: 300px;
-  margin: 50px auto;
-  border: 1px solid #ccc;
-  padding: 20px;
-}
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-input[type="text"] {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-}
-.genre-group {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-input[type="radio"] {
-  margin-right: 5px;
-}
-input[type="submit"] {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-</style>
-</head>
-<body>
-
-<div class="container">
-  <form>
-    <label for="bookTitle">Book title</label>
-    <input type="text" id="bookTitle" name="bookTitle" value="Othello">
-
-    <label for="author">Author</label>
-    <input type="text" id="author" name="author" value="Shakespeare" placeholder="nithni">
-
-    <label><input type="checkbox" name="inStore" checked=""> In store</label>
-
-    <label>Genre</label>
-    <div class="genre-group">
-      <label><input type="checkbox"> Poetry</label>
-      <label><input type="radio" name="genre" value="horror"> Horror</label>
-      <label><input type="radio" name="genre" value="shortStory"> Short Story</label>
-      <label><input type="radio" name="genre" value="fantasy"> Fantasy</label>
-      <label><input type="radio" name="genre" value="drama"> Drama</label>
-      <label><input type="radio" name="genre" value="tragedy" checked=""> Tragedy</label>
-    </div>
-
-    <input type="submit" value="Apply">
-  </form>
-</div>
-
-
-</body></html>
------------------------
-Here are the block-level elements in HTML:
-
-<address> <article> <aside> <blockquote> <canvas> <dd>
-
-<div> <dl> <dt> <fieldset> <figcaption> <figure>
-
-<footer> <form> <h1>-<h6> <header> <hr> <li>
-
-<main> <nav> <noscript> <ol> <p> <pre>   
-
-<section> <table> <tfoot> <ul> <video>   
-
-----------------------------------------
-box inside
---------------------------------
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EXAMPLE OF BLOCK ELEMENT</title>
-</head>
-<body>
-
-  <p>This is a block element.</p>
-
-  <p style="border: 2px solid black;">This is another paragraph that starts on a new line.</p>
-
-  <hr>
-
-  <ul style="border: 2px solid black;">
-    <li>Item 1</li>
-    <li>Item 2</li>
-  </ul>
-
-  <ol style="border: 2px solid black;">
-    <li>Step 1</li>
-    <li>Step 2</li>
-  </ol>
-
-  <hr>
-
-  <h1 style="border: 2px solid black;">This is a level 1 heading</h1>
-  <h2>This is a level 2 heading</h2>
-
-  <hr>
-
-</body>
-</html>
------------------------------------
-span and image next to text
---------------------
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EXAMPLE FOR INLINE ELEMENT</title>
-</head>
-<body>
-
-  <p>This is a <span style="color: red;">highlighted</span> word in a paragraph.</p>
-
-  <hr>
-
-  <p>Click <a href="https://example.com">here</a> to visit the website.</p>
-
-  <hr>
-
-  <p>This is a <strong style="border: 2px solid black;">bold</strong> word.</p>
-
-  <hr>
-
-  <p>This is an inline image: <img src="image.jpg" alt="Example Image" width="50"></p>
-
-</body>
-</html>
-------------------------------
-backround image
---------------------
-<!DOCTYPE html>
-<html>
-<body>
-
-<h2>Background Image</h2>
-
-<p>A background image for a p element:</p>
-
-<p style="background-image: url('cari.jpg');">
-You can specify background images<br>for any visible HTML element.<br>In this example, the background image<br>is specified for a p element.<br>
-</p>
-
-<hr>
-
-<div style="background-image: url('https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'); height: 365px">
-</div>
-
-</body>
-</html>
------------------
-backroung img position
-----------------------
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EXAMPLE FOR BACKGROUND-POSITION</title>
-</head>
-<body>
-
-  <div style="background-image: url('image.jpg'); background-position: 50% 50%; background-repeat: no-repeat; width: 300px; height: 200px;"></div>
-
-  <hr>
-
-  <div style="background-image: url(https://cdn-icons-png.flaticon.com/512/123/123261.png); background-color: cyan; background-position: bottom top; background-repeat: no-repeat; height: 820px;"></div>
-
-</body>
-</html>
---------------------------
-margin
--------------------
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EXAMPLE OF MARGIN</title>
-</head>
-<body>
-
-  <p style="margin: 40px;">hello world</p>
-  <hr>
-
-  <p style="margin: 20px 10px;">2 sides</p>
-  <hr>
-
-  <p style="margin: 80px 40px;">example for margin 2 values</p>
-  <hr>
-
-</body>
-</html>
------------------------------
-padding
----------------------
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EXAMPLE FOR STYLE TAG PADDING</title>
-</head>
-<body>
-
-  <div style="padding: 40px; background-color: cyan; width: 200px; height: 200px;">
-    <div style="background-color: red; width: 50px; height: 50px;"></div>
-  </div>
-
-  <hr>
-
-  <p style="padding: 80px; background-color: cyan; width: 200px; height: 200px;">padding example</p>
-
-</body>
-</html>
----------------------
-text lines
--------------
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EXAMPLE STYLE TEXT-DECORATION</title>
-</head>
-<body>
-
-  <p style="text-decoration: underline; color: blue;">
-    This is underlined text.
-  </p>
-
-  <hr>
-
-  <p style="text-decoration: overline; color: green;">
-    This text has an overline.
-  </p>
-
-  <hr>
-
-  <p style="text-decoration: line-through; color: red;">
-    This text has a line through it.
-  </p>
-
-</body>
-</html>
------------------
-text shadow
---------------------
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EXAMPLE FOR SYTLE TEXT-SHADOW</title>
-</head>
-<body>
-
-  <h1 style="text-shadow: 2px 2px 5px gray;">
-    Simple Shadow Example
-  </h1>
-
-  <hr>
-
-  <h1 style="text-shadow: 2px 2px 4px gray, -2px 2px 4px lightblue;">
-    Multiple Shadows Example
-  </h1>
-
-  <hr>
-
-  <p style="text-shadow: 5px 2px gray; text-align: center; padding: 20px 0; border: 1px solid red; font-size: 32px;">
-    This is a paragraph aligned center
-  </p>
-
-</body>
-</html>
------------------
-1. Text and Font Properties
-
-color: Sets the text color (e.g., color: red;)
-font-size: Defines the size of the font (e.g., font-size: 16px;)
-font-family: Specifies the font type (e.g., font-family: Arial, sans-serif;)
-font-style: Sets the style of the font (e.g., font-style: italic;)
-font-weight: Specifies the weight of the font (e.g., font-weight: bold;)
-letter-spacing: Adjusts space between letters (e.g., letter-spacing: 2px;)
-line-height: Sets the height of lines (e.g., line-height: 1.5;)
-text-align: Aligns text (e.g., text-align: center;)
-text-decoration: Adds decoration to text (e.g., text-decoration: underline;)
-text-transform: Transforms text case (e.g., text-transform: uppercase;)
-white-space: Controls text wrapping (e.g., white-space: nowrap;)
-word-spacing: Sets space between words (e.g., word-spacing: 5px;)
-2. Background Properties
-
-background-color: Sets the background color (e.g., background-color: yellow;)
-background-image: Sets a background image (e.g., background-image: url('image.jpg');)
-background-position: Sets the position of the background image (e.g., background-position: center;)
-background-size: Specifies the size of the background image (e.g., background-size: cover;)
-background-repeat: Defines if/how the background image is repeated (e.g., background-repeat: no-repeat;)
-background-attachment: Sets whether the background image is fixed or scrolls (e.g., background-attachment: fixed;)
-
-3. Box Model Properties
-
-margin: Sets the margin outside the element (e.g., margin: 10px;)
-padding: Sets the padding inside the element (e.g., padding: 10px;)
-border: Defines the border (e.g., border: 1px solid black;)
-border-radius: Rounds the corners of an element (e.g., border-radius: 5px;)
-width: Specifies the width of the element (e.g., width: 100px;)
-height: Specifies the height of the element (e.g., height: 100px;)
-4. Positioning and Layout Properties
-
-display: Defines the display type (e.g., display: block;)
-position: Sets the positioning method (e.g., position: relative;)
-top, right, bottom, left: Specifies offsets (e.g., top: 10px;)
-z-index: Sets the stack order (e.g., z-index: 10;)
-overflow: Handles overflow content (e.g., overflow: hidden;)
-float: Floats an element (e.g., float: left;)
-clear: Clears floating elements (e.g., clear: both;)
-5. Flexbox Properties
-
-flex: Sets flexible length (e.g., flex: 1;)
-justify-content: Aligns items horizontally (e.g., justify-content: center;)
-align-items: Aligns items vertically (e.g., align-items: flex-start;)
-flex-direction: Sets the direction of the flex container (e.g., flex-direction: row;)
-flex-wrap: Specifies whether items should wrap (e.g., flex-wrap: wrap;)
------------------------------
-iframe
-=-------------------
-<!DOCTYPE html>
-<html>
-<body>
-
-<h2>Iframe - Target for a Link</h2>
-
-<iframe src="pblm_table9.html" name="iframe_a" height="300px" width="100%" title="Iframe Example"></iframe>
-
-<p><a href="https://www.wikipedia.org" target="iframe_a">wikipedia.com</a></p>
-
-<p>When the target attribute of a link matches the name of an iframe, the link will open in the iframe.</p>
-
-</body>
-</html>
-------------
-
-<body>
-
-<header>
-
-<h1>My Website</h1>
-
-</header>
-
-<nav>
-
-<ul>
-
-<li><a href="#">Home</a></li>
-
-<li><a href="#">About</a></li>
-
-<li><a href="#">Contact</a></li>
-
-</ul>
-
-</nav>
-
-<section>
-
-<h2>Welcome</h2>
-
-<p>This section contains the main content of the page.</p>
-
-</section>
-
-<footer>
-
-<p>&copy; 2025 My Website</p>
-
-</footer>
-
-</body>
-all withiout div--------------\
---------------------------------
-quesyions
-------------------------------------
-1. Create a button with a yellow background, black text, and a shadow effect using the style attribute.
-   
-   Answer:
-   ```html
-   <button style="background-color: yellow; color: black; text-shadow: 2px 2px 5px gray;">Click Me</button>
-   ```
-
-2. Create a table with borders, padding, and alternating row colors.
-   
-   Answer:
-   ```html
-   <table style="border-collapse: collapse; width: 100%;">
-       <tr style="background-color: lightgray;">
-           <th style="border: 1px solid black; padding: 10px;">Header 1</th>
-           <th style="border: 1px solid black; padding: 10px;">Header 2</th>
-       </tr>
-       <tr>
-           <td style="border: 1px solid black; padding: 10px;">Data 1</td>
-           <td style="border: 1px solid black; padding: 10px;">Data 2</td>
-       </tr>
-       <tr style="background-color: lightgray;">
-           <td style="border: 1px solid black; padding: 10px;">Data 3</td>
-           <td style="border: 1px solid black; padding: 10px;">Data 4</td>
-       </tr>
-   </table>
-   ```
-
-3. Create a heading (h2) that is center-aligned and bold using the style attribute.
-   
-   Answer:
-   ```html
-   <h2 style="text-align: center; font-weight: bold;">Centered and Bold Heading</h2>
-   ```
-
-4. Create a paragraph with a 2-pixel solid black border and a margin of 15 pixels on all sides.
-   
-   Answer:
-   ```html
-   <p style="border: 2px solid black; margin: 15px;">This is a paragraph with a border and margin.</p>
-   ```
-
-5. Create a paragraph with italic text, a green color, and a text shadow.
-   
-   Answer:
-   ```html
-   <p style="font-style: italic; color: green; text-shadow: 1px 1px 3px gray;">This is an italic green paragraph with a text shadow.</p>
-   ```
-**Questions and Answers**
-
-1. **How can you create a button with a yellow background, black text, and a shadow effect using the style attribute?**
-   - You can use the `<button>` tag with inline CSS styling:
-     ```html
-     <button style="background-color: yellow; color: black; text-shadow: 2px 2px 4px gray;">Click Me</button>
-     ```
-
-2. **How can you create a table with borders, padding, and alternating row colors?**
-   - You can use the `<table>` tag along with CSS styles:
-     ```html
-     <table border="1" style="border-collapse: collapse;">
-       <tr style="background-color: lightgray;"><td>Row 1</td></tr>
-       <tr><td>Row 2</td></tr>
-       <tr style="background-color: lightgray;"><td>Row 3</td></tr>
-     </table>
-     ```
-
-3. **How do you create a center-aligned, bold heading using the style attribute?**
-   - You can use the `<h2>` tag with CSS:
-     ```html
-     <h2 style="text-align: center; font-weight: bold;">My Heading</h2>
-     ```
-
-4. **How can you create a paragraph with a 2-pixel solid black border and a margin of 15 pixels?**
-   - Use the `<p>` tag with inline CSS:
-     ```html
-     <p style="border: 2px solid black; margin: 15px;">This is a paragraph.</p>
-     ```
-
-5. **How do you create a paragraph with italic text, green color, and a text shadow?**
-   - Use the `<p>` tag with inline CSS:
-     ```html
-     <p style="font-style: italic; color: green; text-shadow: 2px 2px 4px gray;">Styled Text</p>
-     ```
-
-6. **How do you create a heading with centered text alignment?**
-   - Use the `<h1>` or `<h2>` tag with CSS:
-     ```html
-     <h1 style="text-align: center;">Welcome to My Website</h1>
-     ```
-
-7. **How do you set the font size and family for a paragraph?**
-   - Use the `<p>` tag with CSS:
-     ```html
-     <p style="font-size: 18px; font-family: Arial;">This is a paragraph.</p>
-     ```
-
-8. **How do you resize an image to 200px by 150px?**
-   - Use the `<img>` tag with width and height attributes:
-     ```html
-     <img src="image.jpg" style="width: 200px; height: 150px;">
-     ```
-
-9. **How can you add letter spacing of 5px to a paragraph?**
-   - Use the `<p>` tag with CSS:
-     ```html
-     <p style="letter-spacing: 5px;">Spacing Example</p>
-     ```
-
-10. **How do you increase the line height of a paragraph for better readability?**
-    - Use the `<p>` tag with CSS:
-      ```html
-      <p style="line-height: 1.8;">This paragraph has better readability.</p>
-      ```
-
-11. **How do you apply a text shadow effect to a heading?**
-    - Use the `<h1>` tag with CSS:
-      ```html
-      <h1 style="text-shadow: 3px 3px 4px gray;">Shadow Effect</h1>
-      ```
-
-12. **How can you create an underlined link using text-decoration?**
-    - Use the `<a>` tag with CSS:
-      ```html
-      <a href="#" style="text-decoration: underline;">Click Here</a>
-      ```
-
-**Questions and Answers**
-
-**1. Write HTML code to create a webpage with two sections, one for "About Us" and one for "Contact Us," using <div> tags.**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>About Us & Contact Us</title>
-</head>
-<body>
-    <div>
-        <h2>About Us</h2>
-        <p>Welcome to our website. We provide top-quality services.</p>
-    </div>
-    <div>
-        <h2>Contact Us</h2>
-        <p>Email: contact@example.com</p>
-    </div>
-</body>
-</html>
-```
-
-**2. Write HTML code to create a table inside a <div> showing student names and their grades.**
-
-```html
-<div>
-    <table border="1">
-        <tr>
-            <th>Name</th>
-            <th>Grade</th>
-        </tr>
-        <tr>
-            <td>John</td>
-            <td>A</td>
-        </tr>
-        <tr>
-            <td>Jane</td>
-            <td>B</td>
-        </tr>
-    </table>
-</div>
-```
-
-**3. Write HTML code to display event details, such as "Event Name," "Date," and "Location," inside a table wrapped in a <div>.**
-
-```html
-<div>
-    <table border="1">
-        <tr>
-            <th>Event Name</th>
-            <th>Date</th>
-            <th>Location</th>
-        </tr>
-        <tr>
-            <td>Music Festival</td>
-            <td>June 15, 2024</td>
-            <td>New York</td>
-        </tr>
-    </table>
-</div>
-```
-
-**4. Write HTML code to group two tables, one for "Employees" and another for "Departments," inside a <div>.**
-
-```html
-<div>
-    <h2>Employees</h2>
-    <table border="1">
-        <tr><th>Name</th><th>Position</th></tr>
-        <tr><td>Alice</td><td>Manager</td></tr>
-    </table>
-    <h2>Departments</h2>
-    <table border="1">
-        <tr><th>Department</th><th>Head</th></tr>
-        <tr><td>HR</td><td>Bob</td></tr>
-    </table>
-</div>
-```
-
-**5. Write HTML code to create a table with the heading in one <div> and the table body in another <div>.**
-
-```html
-<div>
-    <h2>Student Grades</h2>
-</div>
-<div>
-    <table border="1">
-        <tr><th>Name</th><th>Grade</th></tr>
-        <tr><td>Tom</td><td>A</td></tr>
-    </table>
-</div>
-```
-
-**6. Create a webpage layout with a header, a horizontal navigation bar, and a content section.**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Webpage Layout</title>
-</head>
-<body>
-    <header><h1>Website Header</h1></header>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-    </nav>
-    <section>
-        <p>Welcome to our website!</p>
-    </section>
-</body>
-</html>
-```
-
-**7. Write HTML code to create a layout with a header, sidebar, main content, and footer.**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Webpage Layout</title>
-</head>
-<body>
-    <header><h1>Header</h1></header>
-    <div style="display:flex;">
-        <aside style="width:20%;">Sidebar</aside>
-        <main style="width:60%;">Main Content</main>
-    </div>
-    <footer>Footer</footer>
-</body>
-</html>
-```
-
-**8. Write code for a layout with a header, two content columns, and a footer.**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Two Column Layout</title>
-</head>
-<body>
-    <header><h1>Header</h1></header>
-    <div style="display:flex;">
-        <section style="width:50%;">Column 1</section>
-        <section style="width:50%;">Column 2</section>
-    </div>
-    <footer>Footer</footer>
-</body>
-</html>
-```
-
-**9. Create a form with fields for a username, password, and a "Remember Me" checkbox.**
-
-```html
-<form>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username">
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password">
-    <br>
-    <input type="checkbox" id="remember" name="remember">
-    <label for="remember">Remember Me</label>
-    <br>
-    <button type="submit">Login</button>
-</form>
-```
-
-----------------
-css example
--------------------------
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS Example</title>
-  <style>
-    /* Resetting margins and paddings */
-    body, h1, p, ul {
-      margin: 0;
-      padding: 0;
-    }
-
-    /* General styles */
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f0f0f0;
-      color: #333;
-    }
-
-    /* Header styles */
-    .header {
-      background: linear-gradient(45deg, #6a11cb, #2575fc);
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    /* Navbar styles */
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      background-color: #333;
-      padding: 10px;
-    }
-
-    .navbar li {
-      margin: 0 15px;
-    }
-
-    .navbar a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-    }
-
-    .navbar a:hover {
-      color: #6a11cb;
-    }
-
-    /* Main content styles */
-    .content {
-      padding: 20px;
-      text-align: center;
-    }
-
-    /* Footer styles */
-    .footer {
-      text-align: center;
-      background-color: #333;
-      color: white;
-      padding: 10px 0;
-    }
-  </style>
-</head>
-<body>
-  <header class="header">
-    <h1>Welcome to My Website</h1>
-  </header>
-  <nav class="navbar">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-  <main class="content">
-    <p>This is a simple example of using CSS to style a webpage.</p>
-  </main>
-  <footer class="footer">
-    <p>&copy; 2025 My Website</p>
-  </footer>
-</body>
-</html>
------------------------------
-
-
-
-
-
-
-
-
-
+    print("------")
+    print("Popped element:", stack.pop())
+    print("Stack after pop:", stack)
+    
+    if not stack.is_empty():
+        print("Top element:", stack.peek())
+    else:
+        print("Stack is empty after pop")
+        
+    print("------")
+    print("Popped element:", stack.pop())
+    print("Stack after pop:", stack)
+    
+    if not stack.is_empty():
+        print("Top element:", stack.peek())
+    else:
+        print("Stack is empty after pop")
+
+################################################################################
+
+a = "abc"
+print(type(a))
+
+################################################################################
+
+a = a + "d"
+print(a)
+
+################################################################################
+
+type(a)
+
+################################################################################
+
+
+
+################################################################################
+
+'''
+Valid paranthesis
+
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type.
+ 
+
+Example 1:
+
+Input: s = "()"
+
+Output: true
+
+Example 2:
+
+Input: s = "()[]{}"
+
+Output: true
+
+Example 3:
+
+Input: s = "(]"
+
+Output: false
+
+Example 4:
+
+Input: s = "([])"
+
+Output: true
+
+'''
+
+class Array:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.array = [None] * capacity
+        self.size = 0
+    
+    def insert(self, index, value):
+        if self.size >= self.capacity:
+            raise OverflowError("Array is full")
+        if index < 0 or index > self.size:
+            raise IndexError("Index out of bounds")
+        for i in range(self.size, index, -1):
+            self.array[i] = self.array[i - 1]
+        self.array[index] = value
+        self.size += 1
+    
+    def remove(self, index):
+        if self.size == 0:
+            raise IndexError("Array is empty")
+        if index < 0 or index >= self.size:
+            raise IndexError("Index out of bounds")
+        value = self.array[index]
+        for i in range(index, self.size - 1):
+            self.array[i] = self.array[i + 1]
+        self.array[self.size - 1] = None
+        self.size -= 1
+        return value
+    
+    def get(self, index):
+        if index < 0 or index >= self.size:
+            raise IndexError("Index out of bounds")
+        return self.array[index]
+    
+    def is_empty(self):
+        return self.size == 0
+    
+    def is_full(self):
+        return self.size == self.capacity
+    
+    def __str__(self):
+        return str(self.array[:self.size])
+
+class Stack:
+    def __init__(self, capacity):
+        self.array = Array(capacity)
+    
+    def push(self, value):
+        if self.array.is_full():
+            raise OverflowError("Stack overflow")
+        self.array.insert(self.array.size, value)
+    
+    def pop(self):
+        if self.array.is_empty():
+            raise IndexError("Stack underflow")
+        return self.array.remove(self.array.size - 1)
+    
+    def peek(self):
+        if self.array.is_empty():
+            return None  
+        return self.array.get(self.array.size - 1)
+    
+    def is_empty(self):
+        return self.array.is_empty()
+    
+    def is_full(self):
+        return self.array.is_full()
+    
+    def __str__(self):
+        return str(self.array)
+
+def is_valid_parentheses(s):
+    stack = Stack(len(s))
+    bracket_map = {')': '(', '}': '{', ']': '['}
+    
+    for char in s:
+        if char in bracket_map.values():
+            stack.push(char)
+        elif char in bracket_map.keys():
+            if stack.is_empty() or stack.pop() != bracket_map[char]:
+                return False
+    
+    return stack.is_empty()
+
+if __name__ == "__main__":
+    test_cases = ["()", "()[]{}", "(]", "([])"]
+    for s in test_cases:
+        print(f"Input: {s} -> Output: {is_valid_parentheses(s)}")
+
+################################################################################
+
+'''
+Given two integer arrays pushed and popped each with distinct values, 
+return true if this could have been the result of a sequence of push and pop operations 
+on an initially empty stack, or false otherwise.
+
+ 
+Example 1:
+
+Input: pushed = [1,2,3,4,5], popped = [4,5,3,2,1]
+Output: true
+Explanation: We might do the following sequence:
+push(1), push(2), push(3), push(4),
+pop() -> 4,
+push(5),
+pop() -> 5, pop() -> 3, pop() -> 2, pop() -> 1
+Example 2:
+
+Input: pushed = [1,2,3,4,5], popped = [4,3,5,1,2]
+Output: false
+Explanation: 1 cannot be popped before 2.
+'''
+
+class Array:
+    def __init__(self):
+        self.data = [None] * 100 
+        self.size = 0  
+    
+    def insert(self, value):
+        if self.size < len(self.data):
+            self.data[self.size] = value
+            self.size += 1
+    
+    def remove(self):
+        if not self.is_empty():
+            value = self.data[self.size - 1]
+            self.size -= 1
+            return value
+        return None
+    
+    def peek(self):
+        if not self.is_empty():
+            return self.data[self.size - 1]
+        return None
+    
+    def is_empty(self):
+        return self.size == 0
+
+
+class Stack:
+    def __init__(self):
+        self.array = Array()  
+    
+    def push(self, value):
+        self.array.insert(value)
+    
+    def pop(self):
+        return self.array.remove()
+    
+    def peek(self):
+        return self.array.peek()
+    
+    def is_empty(self):
+        return self.array.is_empty()
+
+
+class StackValidator:
+    def __init__(self, pushed, popped):
+        self.pushed = pushed  
+        self.popped = popped  
+        self.stack = Stack()  
+        self.index = 0  
+    
+    def validate(self):
+        for value in self.pushed:
+            self.stack.push(value)
+            while (not self.stack.is_empty() and self.index < len(self.popped) and 
+                   self.stack.peek() == self.popped[self.index]):
+                self.stack.pop()
+                self.index += 1
+        
+        return self.stack.is_empty()
+
+
+pushed = [1, 2, 3, 4, 5]
+popped = [4, 5, 3, 2, 1]
+validator = StackValidator(pushed, popped)
+print(validator.validate()) 
+
+pushed2 = [1, 2, 3, 4, 5]
+popped2 = [4, 3, 5, 1, 2]
+validator2 = StackValidator(pushed2, popped2)
+print(validator2.validate())  
+
+################################################################################
+
+'''
+You are given an integer array nums, an integer k, and an integer multiplier.
+
+You need to perform k operations on nums. In each operation:
+
+Find the minimum value x in nums. If there are multiple occurrences of the minimum value, select the one that appears first.
+Replace the selected minimum value x with x * multiplier.
+Return an integer array denoting the final state of nums after performing all k operations.
+
+ 
+
+Example 1:
+
+Input: nums = [2,1,3,5,6], k = 5, multiplier = 2
+
+Output: [8,4,6,5,6]
+'''
+
+class Array:
+    def __init__(self, size):
+        self.data = [None] * size  
+        self.size = size  
+        self.top = -1  
+
+    def insert(self, index, value):
+        if 0 <= index < self.size:
+            self.data[index] = value
+    
+    def get(self, index):
+        if 0 <= index < self.size:
+            return self.data[index]
+        return None
+
+    def get_array(self):
+        return self.data
+
+
+class Stack:
+    def __init__(self, size):
+        self.array = Array(size)
+
+    def push(self, value):
+        if self.array.top < self.array.size - 1:
+            self.array.top += 1
+            self.array.insert(self.array.top, value)
+    
+    def pop(self):
+        if self.array.top >= 0:
+            value = self.array.get(self.array.top)
+            self.array.top -= 1
+            return value
+        return None
+    
+    def peek(self, index):
+        if 0 <= index <= self.array.top:
+            return self.array.get(index)
+        return None
+    
+    def find_min_index(self):
+        min_index = 0
+        for i in range(1, self.array.top + 1):
+            if self.array.get(i) < self.array.get(min_index):
+                min_index = i
+        return min_index
+    
+    def multiply_at_index(self, index, multiplier):
+        if 0 <= index <= self.array.top:
+            self.array.data[index] *= multiplier
+    
+    def print_stack(self):
+        print(self.get_stack())
+
+    def get_stack(self):
+        return self.array.get_array()[:self.array.top + 1]
+
+
+def modify_array(nums, k, multiplier):
+    stack = Stack(len(nums))
+    for num in nums:
+        stack.push(num)
+    
+    for _ in range(k):
+        min_index = stack.find_min_index()
+        stack.multiply_at_index(min_index, multiplier)
+        stack.print_stack()  
+    
+    return stack.get_stack()
+
+nums = [2, 1, 3, 5, 6]
+k = 5
+multiplier = 2
+print(modify_array(nums, k, multiplier))  
+
+################################################################################
+
+'''
+There are n mountains in a row, and each mountain has a height. You are given an integer array height where height[i] represents the height of mountain i, and an integer threshold.
+
+A mountain is called stable if the mountain just before it (if it exists) has a height strictly greater than threshold. Note that mountain 0 is not stable.
+
+Return an array containing the indices of all stable mountains in any order.
+
+ 
+
+Example 1:
+
+Input: height = [1,2,3,4,5], threshold = 2
+
+Output: [3,4]
+
+Explanation:
+
+Mountain 3 is stable because height[2] == 3 is greater than threshold == 2.
+Mountain 4 is stable because height[3] == 4 is greater than threshold == 2.
+Example 2:
+
+Input: height = [10,1,10,1,10], threshold = 3
+
+Output: [1,3]
+
+Example 3:
+
+Input: height = [10,1,10,1,10], threshold = 10
+
+Output: []
+'''
+
+class Array:
+    def __init__(self, size):
+        self.data = [None] * size  
+        self.size = size
+        self.top = -1  
+
+    def insert(self, index, value):
+        if 0 <= index < self.size:
+            self.data[index] = value
+    
+    def get(self, index):
+        if 0 <= index < self.size:
+            return self.data[index]
+        return None
+    
+    def get_array(self):
+        return self.data
+
+
+class Stack:
+    def __init__(self, size):
+        self.array = Array(size)
+
+    def push(self, value):
+        if self.array.top < self.array.size - 1:
+            self.array.top += 1
+            self.array.insert(self.array.top, value)
+    
+    def pop(self):
+        if self.array.top >= 0:
+            value = self.array.get(self.array.top)
+            self.array.top -= 1
+            return value
+        return None
+
+
+def find_stable_mountains(height, threshold):
+    n = len(height)
+    array = Array(n)
+    for i in range(n):
+        array.insert(i, height[i])
+    
+    stable_mountains = []
+    for i in range(1, n):
+        if array.get(i - 1) > threshold:
+            stable_mountains.append(i)
+    
+    return stable_mountains
+
+height = [1, 2, 3, 4, 5]
+threshold = 2
+print(find_stable_mountains(height, threshold)) 
+
+height = [10, 1, 10, 1, 10]
+threshold = 3
+print(find_stable_mountains(height, threshold))  
+
+height = [10, 1, 10, 1, 10]
+threshold = 10
+print(find_stable_mountains(height, threshold))  
+
+################################################################################
+
+'''
+You are given a large sample of integers in the range [0, 255]. 
+Since the sample is so large, it is represented by an array count where count[k] 
+is the number of times that k appears in the sample.
+
+Calculate the following statistics:
+
+minimum: The minimum element in the sample.
+maximum: The maximum element in the sample.
+mean: The average of the sample, calculated as the total sum of all elements divided by the total number of elements.
+median:
+If the sample has an odd number of elements, 
+then the median is the middle element once the sample is sorted.
+
+If the sample has an even number of elements, 
+then the median is the average of the two middle elements once the sample is sorted.
+
+mode: The number that appears the most in the sample. It is guaranteed to be unique.
+
+Return the statistics of the sample as an array of floating-point numbers 
+[minimum, maximum, mean, median, mode]. Answers within 10-5 of the actual answer will be accepted.
+'''
+
+class Array:
+    def __init__(self, size):
+        self.data = [0] * size  
+        self.size = size
+        self.top = -1  
+
+    def insert(self, index, value):
+        if 0 <= index < self.size:
+            self.data[index] = value
+    
+    def get(self, index):
+        if 0 <= index < self.size:
+            return self.data[index]
+        return None
+    
+    def get_array(self):
+        return self.data
+
+    def find_min(self):
+        for i in range(self.size):
+            if self.data[i] > 0:
+                return i
+        return None
+    
+    def find_max(self):
+        for i in range(self.size - 1, -1, -1):
+            if self.data[i] > 0:
+                return i
+        return None
+    
+    def total_sum(self):
+        return sum(i * self.data[i] for i in range(self.size))
+    
+    def total_count(self):
+        return sum(self.data)
+    
+    def find_mode(self):
+        return max(range(self.size), key=lambda x: self.data[x])
+    
+    def find_median(self):
+        count = self.total_count()
+        mid1, mid2 = (count // 2, (count // 2) + 1) if count % 2 == 0 else (count // 2, count // 2)
+        freq_sum = 0
+        median1 = median2 = None
+        
+        for i in range(self.size):
+            freq_sum += self.data[i]
+            if median1 is None and freq_sum >= mid1:
+                median1 = i
+            if median2 is None and freq_sum >= mid2:
+                median2 = i
+                break
+        
+        return (median1 + median2) / 2
+
+
+class Stack:
+    def __init__(self, size):
+        self.array = Array(size)
+    
+    def push(self, index, value):
+        self.array.insert(index, value)
+    
+    def get_statistics(self):
+        minimum = self.array.find_min()
+        maximum = self.array.find_max()
+        mean = self.array.total_sum() / self.array.total_count()
+        median = self.array.find_median()
+        mode = self.array.find_mode()
+        return [minimum, maximum, mean, median, mode]
+
+
+def calculate_statistics(count):
+    stack = Stack(len(count))
+    for i in range(len(count)):
+        stack.push(i, count[i])
+    
+    print("Index  | Frequency")
+    print("------------------")
+    for i in range(len(count)):
+        if count[i] > 0:
+            print(f"  {i}    |    {count[i]}")
+    
+    return stack.get_statistics()
+
+count = [0] * 256
+count[0] = 5
+count[10] = 2
+count[20] = 3
+print(calculate_statistics(count))  
+
+################################################################################
+
+'''
+Given a postfix expression, the task is to evaluate the postfix expression. 
+A Postfix expression is of the form “a b operator” (“a b +”) i.e., a pair of operands is followed by an operator.
+
+Examples:
+
+Input: arr = [“2”, “3”, “1”, “*”, “+”, “9”, “-“]
+Output: -4
+Explanation: If the expression is converted into an infix expression, it will be 2 + (3 * 1) – 9 = 5 – 9 = -4.
+
+
+Input: arr = [“100”, “200”, “+”, “2”, “/”, “5”, “*”, “7”, “+”]
+Output: 757
+Explanation: If the expression is converted into an infix expression, 
+it will be ((100 + 200) / 2) * 5 + 7  = 150 * 5 + 7 = 757."
+'''
+
+class Array:
+    def __init__(self, size):
+        self.data = [0] * size  
+        self.size = size
+        self.top = -1  
+
+    def insert(self, index, value):
+        if 0 <= index < self.size:
+            self.data[index] = value
+    
+    def get(self, index):
+        if 0 <= index < self.size:
+            return self.data[index]
+        return None
+    
+    def get_array(self):
+        return self.data
+
+class Stack:
+    def __init__(self, size):
+        self.array = Array(size)
+    
+    def push(self, value):
+        if self.array.top < self.array.size - 1:
+            self.array.top += 1
+            self.array.insert(self.array.top, value)
+    
+    def pop(self):
+        if self.array.top >= 0:
+            value = self.array.get(self.array.top)
+            self.array.top -= 1
+            return value
+        return None
+    
+    def is_empty(self):
+        return self.array.top == -1
+
+def evaluate_postfix(expression):
+    stack = Stack(len(expression))
+    
+    for token in expression:
+        if token.isdigit():
+            stack.push(int(token))
+        else:
+            b = stack.pop()
+            a = stack.pop()
+            if token == '+':
+                stack.push(a + b)
+            elif token == '-':
+                stack.push(a - b)
+            elif token == '*':
+                stack.push(a * b)
+            elif token == '/':
+                stack.push(a // b)  
+    
+    return stack.pop()
+
+# Example usage
+expression1 = ["2", "3", "1", "*", "+", "9", "-"]
+expression2 = ["100", "200", "+", "2", "/", "5", "*", "7", "+"]
+print(evaluate_postfix(expression1)) 
+print(evaluate_postfix(expression2))  
+
+################################################################################
+
+'''
+You are given an arithmetic expression in infix notation, containing integers and the operators 
++, -, *, /, and parentheses (). Your task is to convert this infix expression into a postfix (Reverse Polish) 
+notation using a stack-based approach.
+
+Example 1:
+Input: (3+5)*2
+Output: 3 5 + 2 *
+
+Example 2:
+Input: 10+20*30
+Output: 10 20 30 * +
+'''
+
+class Array:
+    def __init__(self, size):
+        self.data = [0] * size  
+        self.size = size
+        self.top = -1  
+
+    def insert(self, index, value):
+        if 0 <= index < self.size:
+            self.data[index] = value
+    
+    def get(self, index):
+        if 0 <= index < self.size:
+            return self.data[index]
+        return None
+    
+    def get_array(self):
+        return self.data
+
+class Stack:
+    def __init__(self, size):
+        self.array = Array(size)
+    
+    def push(self, value):
+        if self.array.top < self.array.size - 1:
+            self.array.top += 1
+            self.array.insert(self.array.top, value)
+    
+    def pop(self):
+        if self.array.top >= 0:
+            value = self.array.get(self.array.top)
+            self.array.top -= 1
+            return value
+        return None
+    
+    def peek(self):
+        if self.array.top >= 0:
+            return self.array.get(self.array.top)
+        return None
+    
+    def is_empty(self):
+        return self.array.top == -1
+
+def precedence(op):
+    if op in ('+', '-'):
+        return 1
+    if op in ('*', '/'):
+        return 2
+    return 0
+
+def infix_to_postfix(expression):
+    stack = Stack(len(expression))
+    output = []
+    
+    for token in expression:
+        if token.isdigit():  
+            output.append(token)
+        elif token == '(':
+            stack.push(token)
+        elif token == ')':
+            while not stack.is_empty() and stack.peek() != '(':
+                output.append(stack.pop())
+            stack.pop()  
+        else:  
+            while not stack.is_empty() and precedence(stack.peek()) >= precedence(token):
+                output.append(stack.pop())
+            stack.push(token)
+    
+    while not stack.is_empty():
+        output.append(stack.pop())
+    
+    return output
+
+def parse_expression(expression):
+    tokens = []
+    num = ""
+    for char in expression:
+        if char.isdigit():
+            num += char  
+        else:
+            if num:
+                tokens.append(num)
+                num = ""
+            if char in '+-*/()':
+                tokens.append(char)
+    if num:
+        tokens.append(num)  
+    return tokens
+
+expression = input("Enter an infix expression: ")
+tokens = parse_expression(expression)
+print("Postfix expression:", ' '.join(infix_to_postfix(tokens)))
+
+################################################################################
+
+
+
+################################################################################
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class Queue:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+        self.size = 0
+
+    def enqueue(self, x):
+        new_node = Node(x)
+        if self.rear is None:
+            self.front = self.rear = new_node
+        else:
+            self.rear.next = new_node
+            self.rear = new_node
+        self.size += 1
+
+    def dequeue(self):
+        if self.isEmpty():
+            return "Queue is empty"
+        data = self.front.data
+        self.front = self.front.next
+        if self.front is None:
+            self.rear = None
+        self.size -= 1
+        return data
+
+    def isEmpty(self):
+        return self.front is None
+
+    def frontValue(self):
+        return self.front.data if self.front else "Queue is empty"
+
+    def getSize(self):
+        return self.size
+
+    def display(self):
+        temp = self.front
+        elements = []
+        while temp:
+            elements.append(temp.data)
+            temp = temp.next
+        print(elements)
+
+# Stack class using two Queues (Push Costly)
+class StackPushCostly:
+    def __init__(self):
+        self.q1 = Queue()
+        self.q2 = Queue()
+
+    def push(self, x):
+        while not self.q1.isEmpty():
+            self.q2.enqueue(self.q1.dequeue())
+        self.q1.enqueue(x)
+        while not self.q2.isEmpty():
+            self.q1.enqueue(self.q2.dequeue())
+
+    def pop(self):
+        return self.q1.dequeue() if not self.q1.isEmpty() else "Stack is empty"
+
+    def top(self):
+        return self.q1.frontValue()
+
+    def display(self):
+        self.q1.display()
+
+# Stack class using two Queues (Pop Costly)
+class StackPopCostly:
+    def __init__(self):
+        self.q1 = Queue()
+        self.q2 = Queue()
+
+    def push(self, x):
+        self.q1.enqueue(x)
+
+    def pop(self):
+        if self.q1.isEmpty():
+            return "Stack is empty"
+        while self.q1.getSize() > 1:
+            self.q2.enqueue(self.q1.dequeue())
+        popped = self.q1.dequeue()
+        self.q1, self.q2 = self.q2, self.q1
+        return popped
+
+    def top(self):
+        if self.q1.isEmpty():
+            return "Stack is empty"
+        return self.q1.frontValue()
+
+    def display(self):
+        self.q1.display()
+
+print("Push Costly Approach:")
+stack1 = StackPushCostly()
+stack1.push(1)
+stack1.push(2)
+stack1.push(3)
+stack1.display()
+print("Popped Element:", stack1.pop())
+stack1.display()
+
+print("\nPop Costly Approach:")
+stack2 = StackPopCostly()
+stack2.push(1)
+stack2.push(2)
+stack2.push(3)
+stack2.display()
+print("Popped Element:", stack2.pop())
+stack2.display()
+
+################################################################################
+
+
+
+################################################################################
+
+# ==================== Queue ====================
+
+class Array:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.arr = [None] * capacity  
+        self.size = 0
+        self.front = 0
+        self.rear = -1
+
+    def insert(self, value):
+        if self.rear + 1 >= self.capacity:
+            print("Insertion failed: Array is full")
+            return
+        self.rear += 1
+        self.arr[self.rear] = value
+        self.size += 1
+
+    def remove(self):
+        if self.front > self.rear:
+            print("Deletion failed: Array is empty")
+            return
+        self.arr[self.front] = None 
+        self.front += 1
+        self.size -= 1
+
+    def get_front(self):
+        if self.front > self.rear:
+            print("Access failed: Queue is empty")
+            return None
+        return self.arr[self.front]
+
+    def is_empty(self):
+        return self.front > self.rear
+
+    def is_full(self):
+        return self.rear + 1 == self.capacity
+
+    def get_size(self):
+        return self.size
+
+
+class Queue:
+    def __init__(self, capacity):
+        self.arr = Array(capacity)
+
+    def enqueue(self, value):
+        self.arr.insert(value)
+
+    def dequeue(self):
+        self.arr.remove()
+
+    def peek(self):
+        return self.arr.get_front()
+
+    def is_empty(self):
+        return self.arr.is_empty()
+
+    def is_full(self):
+        return self.arr.is_full()
+
+
+if __name__ == "__main__":
+    q = Queue(5)
+    q.enqueue(10)
+    q.enqueue(20)
+    q.enqueue(30)
+    print("Front element:", q.peek())  
+    q.dequeue()
+    print("Front element after dequeue:", q.peek())  
+
+################################################################################
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.size = 0
+
+    def append(self, value):
+        new_node = Node(value)
+        if self.tail:
+            self.tail.next = new_node
+        else:
+            self.head = new_node
+        self.tail = new_node
+        self.size += 1
+
+    def remove_first(self):
+        if not self.head:
+            raise IndexError("Queue underflow")
+        value = self.head.value
+        self.head = self.head.next
+        if self.head is None:
+            self.tail = None
+        self.size -= 1
+        return value
+
+    def get_first(self):
+        if not self.head:
+            raise IndexError("Queue is empty")
+        return self.head.value
+
+    def is_empty(self):
+        return self.head is None
+
+    def display(self):
+        elements = []
+        current = self.head
+        while current:
+            elements.append(current.value)
+            current = current.next
+        print("Queue elements:", elements)
+
+class Queue:
+    def __init__(self):
+        self.linked_list = LinkedList()
+
+    def enqueue(self, value):
+        self.linked_list.append(value)
+
+    def dequeue(self):
+        return self.linked_list.remove_first()
+
+    def front(self):
+        return self.linked_list.get_first()
+
+    def is_empty(self):
+        return self.linked_list.is_empty()
+
+    def display(self):
+        self.linked_list.display()
+
+queue = Queue()
+queue.enqueue(10)
+queue.enqueue(20)
+queue.enqueue(30)
+queue.display()  
+print("Front element:", queue.front())  
+print("Dequeued element:", queue.dequeue())  
+queue.display()  
+print("Queue empty?", queue.is_empty())  
+
+################################################################################
+
+class Node:
+    def __init__(self, data, priority):
+        self.data = data
+        self.priority = priority
+        self.next = None
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def is_empty(self):
+        return self.head is None
+
+    def insert(self, data, priority):
+        new_node = Node(data, priority)
+        if self.is_empty() or self.head.priority < priority:
+            new_node.next = self.head
+            self.head = new_node
+        else:
+            temp = self.head
+            while temp.next and temp.next.priority >= priority:
+                temp = temp.next
+            new_node.next = temp.next
+            temp.next = new_node
+
+    def remove_first(self):
+        if self.is_empty():
+            print("Queue is empty!")
+            return None
+        removed_node = self.head
+        self.head = self.head.next
+        return removed_node.data
+
+    def display(self):
+        if self.is_empty():
+            print("Queue is empty!")
+            return
+        temp = self.head
+        print("Priority Queue:")
+        while temp:
+            print(f"Data: {temp.data}, Priority: {temp.priority}")
+            temp = temp.next
+
+
+class PriorityQueue:
+    def __init__(self):
+        self.linked_list = LinkedList()
+
+    def insert(self, data, priority):
+        self.linked_list.insert(data, priority)
+
+    def delete(self):
+        return self.linked_list.remove_first()
+    
+    def display(self):
+        self.linked_list.display()
+
+
+pq = PriorityQueue()
+pq.insert("Task1", 2)
+pq.insert("Task2", 1)
+pq.insert("Task3", 3)
+pq.insert("Task4", 0)
+pq.insert("Task5", 2)
+
+pq.display()
+
+print("Deleted:", pq.delete())
+pq.display()
+
+################################################################################
+
+class Array:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.array = [None] * capacity
+        self.front = -1
+        self.rear = -1
+
+    def isFull(self):
+        return (self.rear + 1) % self.capacity == self.front
+
+    def isEmpty(self):
+        return self.front == -1
+
+    def insert(self, value):
+        if self.isFull():
+            print("Queue overflow")
+            return
+        if self.isEmpty():
+            self.front = 0
+        self.rear = (self.rear + 1) % self.capacity
+        self.array[self.rear] = value
+
+    def remove(self):
+        if self.isEmpty():
+            print("Queue underflow")
+            return None
+        value = self.array[self.front]
+        if self.front == self.rear:
+            self.front = -1
+            self.rear = -1
+        else:
+            self.front = (self.front + 1) % self.capacity
+        return value
+
+    def getFront(self):
+        if self.isEmpty():
+            print("Queue is empty")
+            return None
+        return self.array[self.front]
+
+    def printQueue(self):
+        if self.isEmpty():
+            print("Queue is empty")
+            return
+        index = self.front
+        elements = []
+        while True:
+            elements.append(self.array[index])
+            if index == self.rear:
+                break
+            index = (index + 1) % self.capacity
+        print("Queue elements:", elements)
+
+class CircularQueue:
+    def __init__(self, capacity):
+        self.array = Array(capacity)
+
+    def enqueue(self, value):
+        self.array.insert(value)
+
+    def dequeue(self):
+        return self.array.remove()
+
+    def getFront(self):
+        return self.array.getFront()
+
+    def printQueue(self):
+        self.array.printQueue()
+
+queue = CircularQueue(5)
+queue.enqueue(10)
+queue.enqueue(20)
+queue.enqueue(30)
+queue.printQueue()  
+print("Front element:", queue.getFront())  
+print("Dequeued element:", queue.dequeue())  
+queue.printQueue()  
+print("Queue empty?", queue.array.isEmpty()) 
+
+################################################################################
+
+queue = CircularQueue(5)
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
+queue.enqueue(4)  
+queue.printQueue()
+print("front = ",queue.array.front)
+print("rear = ",queue.array.rear)
+print("---------")
+queue.enqueue(5) 
+queue.printQueue()
+print("front = ",queue.array.front)
+print("rear = ",queue.array.rear)
+print("---------")
+queue.enqueue(6)
+queue.printQueue()
+print("front = ",queue.array.front)
+print("rear = ",queue.array.rear)
+print("---------")
+queue.dequeue()
+queue.dequeue()
+queue.printQueue()
+print("front = ",queue.array.front)
+print("rear = ",queue.array.rear)
+print("---------")
+queue.enqueue(9)
+queue.printQueue()
+print("front = ",queue.array.front)
+print("rear = ",queue.array.rear)
+print("---------")
+queue.enqueue(10)
+queue.printQueue()
+print("front = ",queue.array.front)
+print("rear = ",queue.array.rear)
+print("---------")
+queue.enqueue(11)
+queue.printQueue()
+print("front = ",queue.array.front)
+print("rear = ",queue.array.rear)
+
+################################################################################
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+
+    def isEmpty(self):
+        return self.front is None
+
+    def insert(self, value):
+        new_node = Node(value)
+        if self.isEmpty():
+            self.front = new_node
+            self.rear = new_node
+            self.rear.next = self.front 
+        else:
+            self.rear.next = new_node
+            self.rear = new_node
+            self.rear.next = self.front  
+
+    def remove(self):
+        if self.isEmpty():
+            print("Queue underflow")
+            return None
+        value = self.front.data
+        if self.front == self.rear:  
+            self.front = None
+            self.rear = None
+        else:
+            self.front = self.front.next
+            self.rear.next = self.front  
+        return value
+
+    def peek(self):
+        if self.isEmpty():
+            print("Queue is empty")
+            return None
+        return self.front.data
+
+    def printQueue(self):
+        if self.isEmpty():
+            print("Queue is empty")
+            return
+        elements = []
+        current = self.front
+        while True:
+            elements.append(current.data)
+            current = current.next
+            if current == self.front:
+                break
+        print("Queue elements:", elements)
+
+class CircularQueue:
+    def __init__(self):
+        self.linked_list = LinkedList()
+
+    def enqueue(self, value):
+        self.linked_list.insert(value)
+
+    def dequeue(self):
+        return self.linked_list.remove()
+
+    def get_front(self):
+        return self.linked_list.peek()
+
+    def isEmpty(self):
+        return self.linked_list.isEmpty()
+
+    def printQueue(self):
+        self.linked_list.printQueue()
+
+queue = CircularQueue()
+queue.enqueue(10)
+queue.enqueue(20)
+queue.enqueue(30)
+queue.printQueue()  
+print("Front element:", queue.get_front()) 
+print("Dequeued element:", queue.dequeue())
+queue.printQueue() 
+print("Queue empty?", queue.isEmpty())  
+
+################################################################################
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def isEmpty(self):
+        return self.head is None
+
+    def insertFront(self, data):
+        new_node = Node(data)
+        if self.isEmpty():
+            self.head = self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
+
+    def insertRear(self, data):
+        new_node = Node(data)
+        if self.isEmpty():
+            self.head = self.tail = new_node
+        else:
+            self.tail.next = new_node
+            new_node.prev = self.tail
+            self.tail = new_node
+
+    def deleteFront(self):
+        if self.isEmpty():
+            print("Deque is empty!")
+            return None
+        data = self.head.data
+        self.head = self.head.next
+        if self.head is None:
+            self.tail = None
+        else:
+            self.head.prev = None
+        return data
+
+    def deleteRear(self):
+        if self.isEmpty():
+            print("Deque is empty!")
+            return None
+        data = self.tail.data
+        self.tail = self.tail.prev
+        if self.tail is None:
+            self.head = None
+        else:
+            self.tail.next = None
+        return data
+
+    def getFront(self):
+        if self.isEmpty():
+            return None
+        return self.head.data
+
+    def getRear(self):
+        if self.isEmpty():
+            return None
+        return self.tail.data
+
+    def printQueue(self):
+        if self.isEmpty():
+            print("Deque is empty!")
+            return
+        current = self.head
+        while current:
+            print(current.data, end=" <-> ")
+            current = current.next
+        print("None")
+
+class Deque:
+    def __init__(self):
+        self.dll = DoublyLinkedList()
+
+    def insertFront(self, data):
+        self.dll.insertFront(data)
+
+    def insertRear(self, data):
+        self.dll.insertRear(data)
+
+    def deleteFront(self):
+        return self.dll.deleteFront()
+
+    def deleteRear(self):
+        return self.dll.deleteRear()
+
+    def getFront(self):
+        return self.dll.getFront()
+
+    def getRear(self):
+        return self.dll.getRear()
+
+    def printQueue(self):
+        self.dll.printQueue()
+
+deque = Deque()
+deque.insertFront(10)
+deque.insertRear(20)
+deque.insertFront(5)
+deque.insertRear(25)
+deque.printQueue()
+print("Front element:", deque.getFront())
+print("Rear element:", deque.getRear())
+deque.deleteFront()
+deque.deleteRear()
+deque.printQueue()
+
+################################################################################
+
+
+
+################################################################################
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class Stack:
+    def __init__(self):
+        self.top = None
+
+    def push(self, data):
+        new_node = Node(data)
+        new_node.next = self.top
+        self.top = new_node
+
+    def pop(self):
+        if self.isEmpty():
+            raise IndexError("Stack is empty")
+        popped_data = self.top.data
+        self.top = self.top.next
+        return popped_data
+
+    def peek(self):
+        if self.isEmpty():
+            raise IndexError("Stack is empty")
+        return self.top.data
+
+    def isEmpty(self):
+        return self.top is None
+
+class QueueUsingStacksEnqueueCostly:
+    def __init__(self):
+        self.stack1 = Stack()
+        self.stack2 = Stack()
+
+    def enqueue(self, item):
+        # Move all elements from stack1 to stack2
+        while not self.stack1.isEmpty():
+            self.stack2.push(self.stack1.pop())
+
+        # Push new item to stack1
+        self.stack1.push(item)
+
+        # Move back all elements to stack1
+        while not self.stack2.isEmpty():
+            self.stack1.push(self.stack2.pop())
+
+    def dequeue(self):
+        if self.stack1.isEmpty():
+            raise IndexError("Queue is empty")
+        return self.stack1.pop()
+
+    def peek(self):
+        if self.stack1.isEmpty():
+            raise IndexError("Queue is empty")
+        return self.stack1.peek()
+
+    def is_empty(self):
+        return self.stack1.isEmpty()
+
+q1 = QueueUsingStacksEnqueueCostly()
+q1.enqueue(10)
+q1.enqueue(20)
+q1.enqueue(30)
+print(q1.dequeue())  
+print(q1.peek())     
+print(q1.is_empty()) 
+
+################################################################################
+
+class QueueUsingStacksDequeueCostly:
+    def __init__(self):
+        self.stack1 = Stack()
+        self.stack2 = Stack()
+
+    def enqueue(self, item):
+        self.stack1.push(item)
+
+    def dequeue(self):
+        if self.stack2.isEmpty():
+            while not self.stack1.isEmpty():
+                self.stack2.push(self.stack1.pop())
+
+        if self.stack2.isEmpty():
+            raise IndexError("Queue is empty")
+        return self.stack2.pop()
+
+    def peek(self):
+        if self.stack2.isEmpty():
+            while not self.stack1.isEmpty():
+                self.stack2.push(self.stack1.pop())
+
+        if self.stack2.isEmpty():
+            raise IndexError("Queue is empty")
+        return self.stack2.peek()
+
+    def is_empty(self):
+        return self.stack1.isEmpty() and self.stack2.isEmpty()
+
+q2 = QueueUsingStacksDequeueCostly()
+q2.enqueue(10)
+q2.enqueue(20)
+q2.enqueue(30)
+print(q2.dequeue())  
+print(q2.peek())     
+print(q2.is_empty()) 
+
+################################################################################
+
+
+
+################################################################################
+
+# ==================== Binary Search Tree ====================
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None
+    
+    def insert(self, value):
+        if not self.root:
+            self.root = Node(value)
+        else:
+            self._insert_recursive(self.root, value)
+    
+    def _insert_recursive(self, current_node, value):
+        if value < current_node.value:
+            if current_node.left is None:
+                current_node.left = Node(value)
+            else:
+                self._insert_recursive(current_node.left, value)
+        elif value > current_node.value:
+            if current_node.right is None:
+                current_node.right = Node(value)
+            else:
+                self._insert_recursive(current_node.right, value)
+        # If value is equal, we typically don't insert duplicates
+    
+    def search(self, value):
+        return self._search_recursive(self.root, value)
+    
+    def _search_recursive(self, current_node, value):
+        if current_node is None:
+            return False
+        
+        if current_node.value == value:
+            return True
+        elif value < current_node.value:
+            return self._search_recursive(current_node.left, value)
+        else:
+            return self._search_recursive(current_node.right, value)
+    
+    def delete(self, value):
+        self.root = self._delete_recursive(self.root, value)
+    
+    def _delete_recursive(self, current_node, value):
+        if current_node is None:
+            return None
+        
+        # Find the node to delete
+        if value < current_node.value:
+            current_node.left = self._delete_recursive(current_node.left, value)
+        elif value > current_node.value:
+            current_node.right = self._delete_recursive(current_node.right, value)
+        else:
+            # Node with the value to be deleted is found
+            
+            # Case 1: Leaf node
+            if current_node.left is None and current_node.right is None:
+                return None
+            
+            # Case 2: Node with only one child
+            if current_node.left is None:
+                return current_node.right
+            if current_node.right is None:
+                return current_node.left
+            
+            # Case 3: Node with two children
+            # Find the minimum value in the right subtree (successor)
+            min_node = self._find_min(current_node.right)
+            current_node.value = min_node.value
+            current_node.right = self._delete_recursive(current_node.right, min_node.value)
+        
+        return current_node
+    
+    def _find_min(self, node):
+        current = node
+        while current.left is not None:
+            current = current.left
+        return current
+    
+    def inorder_traversal(self):
+        result = []
+        self._inorder_recursive(self.root, result)
+        return result
+    
+    def _inorder_recursive(self, current_node, result):
+        if current_node:
+            self._inorder_recursive(current_node.left, result)
+            result.append(current_node.value)
+            self._inorder_recursive(current_node.right, result)
+
+    def preorder_traversal(self):
+        result = []
+        self._preorder_recursive(self.root, result)
+        return result
+    
+    def _preorder_recursive(self, current_node, result):
+        if current_node:
+            result.append(current_node.value)
+            self._preorder_recursive(current_node.left, result)
+            self._preorder_recursive(current_node.right, result)
+    
+    def postorder_traversal(self):
+        result = []
+        self._postorder_recursive(self.root, result)
+        return result
+    
+    def _postorder_recursive(self, current_node, result):
+        if current_node:
+            self._postorder_recursive(current_node.left, result)
+            self._postorder_recursive(current_node.right, result)
+            result.append(current_node.value)
+
+def main():
+    bst = BinarySearchTree()
+    
+    values = [50, 30, 70, 20, 40, 60, 80]
+    for value in values:
+        bst.insert(value)
+    
+    print("Inorder Traversal:   ", bst.inorder_traversal())
+    print("Preorder Traversal:  ", bst.preorder_traversal())
+    print("Postorder Traversal: ", bst.postorder_traversal())
+    
+    print("Search 40:", bst.search(40))
+    print("Search 90:", bst.search(90))
+    
+    bst.delete(30)
+    print("Inorder Traversal after deleting 30:", bst.inorder_traversal())
+
+if __name__ == "__main__":
+    main()
+
+################################################################################
+
+
+
+################################################################################
+
+# ==================== AVL Tree ====================
+
+class AVLNode:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+        self.height = 1
+
+class AVLTree:
+    def __init__(self):
+        self.root = None
+    
+    def height(self, node):
+        if not node:
+            return 0
+        return node.height
+    
+    def balance_factor(self, node):
+        if not node:
+            return 0
+        return self.height(node.left) - self.height(node.right)
+    
+    def update_height(self, node):
+        if node:
+            node.height = 1 + max(self.height(node.left), self.height(node.right))
+    
+    def rotate_right(self, y):
+        x = y.left
+        T2 = x.right
+        
+        x.right = y
+        y.left = T2
+
+        self.update_height(y)
+        self.update_height(x)
+        
+        return x
+    
+    def rotate_left(self, x):
+        y = x.right
+        T2 = y.left
+
+        y.left = x
+        x.right = T2
+
+        self.update_height(x)
+        self.update_height(y)
+        
+        return y
+    
+    def insert(self, root, key):
+        if not root:
+            return AVLNode(key)
+        
+        if key < root.key:
+            root.left = self.insert(root.left, key)
+        else:
+            root.right = self.insert(root.right, key)
+        
+        self.update_height(root)
+        balance = self.balance_factor(root)
+        
+        if balance > 1 and key < root.left.key:
+            return self.rotate_right(root)
+        if balance < -1 and key > root.right.key:
+            return self.rotate_left(root)
+        if balance > 1 and key > root.left.key:
+            root.left = self.rotate_left(root.left)
+            return self.rotate_right(root)
+        if balance < -1 and key < root.right.key:
+            root.right = self.rotate_right(root.right)
+            return self.rotate_left(root)
+        
+        return root
+    
+    def insert_key(self, key):
+        self.root = self.insert(self.root, key)
+    
+    def min_value_node(self, node):
+        current = node
+        while current.left:
+            current = current.left
+        return current
+    
+    def delete(self, root, key):
+        # 1. Perform standard BST deletion
+        if not root:
+            return root
+        
+        if key < root.key:
+            root.left = self.delete(root.left, key)
+        elif key > root.key:
+            root.right = self.delete(root.right, key)
+        else:
+            if not root.left:
+                return root.right
+            elif not root.right:
+                return root.left
+            
+            temp = self.min_value_node(root.right)
+            root.key = temp.key
+            root.right = self.delete(root.right, temp.key)
+        
+        # If the tree had only one node, return
+        if not root:
+            return root
+        
+        # 2. Update height of current node
+        self.update_height(root)
+        
+        # 3. Get the balance factor
+        balance = self.balance_factor(root)
+        
+        # 4. Perform rotations if needed
+        # Left Left Case
+        if balance > 1 and self.balance_factor(root.left) >= 0:
+            return self.rotate_right(root)
+        
+        # Left Right Case
+        if balance > 1 and self.balance_factor(root.left) < 0:
+            root.left = self.rotate_left(root.left)
+            return self.rotate_right(root)
+        
+        # Right Right Case
+        if balance < -1 and self.balance_factor(root.right) <= 0:
+            return self.rotate_left(root)
+        
+        # Right Left Case
+        if balance < -1 and self.balance_factor(root.right) > 0:
+            root.right = self.rotate_right(root.right)
+            return self.rotate_left(root)
+        
+        return root
+    
+    def delete_key(self, key):
+        self.root = self.delete(self.root, key)
+    
+    def inorder_traversal(self, root):
+        result = []
+        if root:
+            result.extend(self.inorder_traversal(root.left))
+            result.append(root.key)
+            result.extend(self.inorder_traversal(root.right))
+        return result
+    
+    def print_tree(self):
+        print(self.inorder_traversal(self.root))
+
+def main():
+    avl = AVLTree()
+    
+    keys = [10, 20, 30, 40, 50, 25]
+    for key in keys:
+        avl.insert_key(key)
+    
+    print("Original Tree:")
+    avl.print_tree()
+    
+    avl.delete_key(30)
+    print("Tree after deleting 30:")
+    avl.print_tree()
+
+if __name__ == "__main__":
+    main()
+
+################################################################################
+
+
+
+################################################################################
+
+
+
+################################################################################
+
+
+
+################################################################################
+
+# ==================== Binary Heap ====================
+
+class BinaryHeap:
+    def __init__(self, heap_type='max'):
+        self._heap = []
+        self._heap_type = heap_type
+
+    def _compare(self, a, b):
+        return a > b if self._heap_type == 'max' else a < b
+
+    def _swap(self, i, j):
+        self._heap[i], self._heap[j] = self._heap[j], self._heap[i]
+
+    def _parent_index(self, index):
+        return (index - 1) // 2
+
+    def _left_child_index(self, index):
+        return 2 * index + 1
+
+    def _right_child_index(self, index):
+        return 2 * index + 2
+
+    def _heapify_up(self, index):
+        parent = self._parent_index(index)
+        
+        # If we're at the root or heap property is satisfied, stop
+        if index > 0 and self._compare(self._heap[index], self._heap[parent]):
+            # Swap with parent
+            self._swap(index, parent)
+            # Continue heapifying up
+            self._heapify_up(parent)
+
+    def _heapify_down(self, index):
+        size = len(self._heap)
+        left = self._left_child_index(index)
+        right = self._right_child_index(index)
+        extreme_index = index
+
+        # Check left child
+        if (left < size and 
+            self._compare(self._heap[left], self._heap[extreme_index])):
+            extreme_index = left
+
+        # Check right child
+        if (right < size and 
+            self._compare(self._heap[right], self._heap[extreme_index])):
+            extreme_index = right
+
+        # If extreme index changed, swap and continue heapifying
+        if extreme_index != index:
+            self._swap(index, extreme_index)
+            self._heapify_down(extreme_index)
+
+    def insert(self, value):
+        self._heap.append(value)
+        self._heapify_up(len(self._heap) - 1)
+
+    def extract_top(self):
+        if not self._heap:
+            raise IndexError("Heap is empty")
+        
+        # If only one element, simply pop it
+        if len(self._heap) == 1:
+            return self._heap.pop()
+        
+        # Save the top element to return later
+        top = self._heap[0]
+        
+        # Replace root with last element
+        self._heap[0] = self._heap.pop()
+        
+        # Restore heap property
+        self._heapify_down(0)
+        
+        return top
+
+    def peek(self):
+        return self._heap[0] if self._heap else None
+
+    def __len__(self):
+        return len(self._heap)
+
+    def is_empty(self):
+        return len(self._heap) == 0
+
+    def display(self, format='list'):
+        if not self._heap:
+            print("Heap is empty.")
+            return
+
+        if format == 'list':
+            # Simple list display
+            print(f"{self._heap_type.capitalize()} Heap (list): {self._heap}")
+        
+        elif format == 'tree':
+            # Tree-like display
+            def _print_tree(index, prefix='', is_left=True):
+                if index >= len(self._heap):
+                    return
+
+                # Print right subtree
+                right_index = self._right_child_index(index)
+                if right_index < len(self._heap):
+                    _print_tree(right_index, prefix + ('│   ' if is_left else '    '), False)
+
+                # Print current node
+                print(prefix + ('└── ' if is_left else '┌── ') + str(self._heap[index]))
+
+                # Print left subtree
+                left_index = self._left_child_index(index)
+                if left_index < len(self._heap):
+                    _print_tree(left_index, prefix + ('    ' if is_left else '│   '), True)
+
+            print(f"{self._heap_type.capitalize()} Heap (tree):")
+            _print_tree(0)
+        
+        else:
+            raise ValueError("Invalid format. Use 'list' or 'tree'.")
+
+def heapsort(arr, reverse=False):
+    # Create heap based on desired order
+    heap_type = 'max' if not reverse else 'min'
+    heap = BinaryHeap(heap_type)
+    
+    # Insert all elements into heap
+    for item in arr:
+        heap.insert(item)
+    
+    # Extract elements to get sorted order
+    sorted_arr = []
+    while not heap.is_empty():
+        sorted_arr.append(heap.extract_top())
+    
+    return sorted_arr
+
+if __name__ == "__main__":
+    print("Max Heap Example:")
+    max_heap = BinaryHeap('max')
+    max_heap.insert(10)
+    max_heap.insert(5)
+    max_heap.insert(15)
+    max_heap.insert(7)
+    
+    print("\nMax Heap Display (List Format):")
+    max_heap.display('list')
+    
+    print("\nMax Heap Display (Tree Format):")
+    max_heap.display('tree')
+    
+    print("\nMin Heap Example:")
+    min_heap = BinaryHeap('min')
+    min_heap.insert(10)
+    min_heap.insert(5)
+    min_heap.insert(15)
+    min_heap.insert(7)
+    
+    print("\nMin Heap Display (List Format):")
+    min_heap.display('list')
+    
+    print("\nMin Heap Display (Tree Format):")
+    min_heap.display('tree')
+
+################################################################################
 
