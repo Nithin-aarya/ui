@@ -1,140 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
 
-1. Simple Calculator
---------------------
-HTML & JavaScript Code:
-<input id="num1" type="number" placeholder="Number 1">
-<input id="num2" type="number" placeholder="Number 2">
-<button onclick="simpleCal()">Add</button>
-<p id="simpleResult"></p>
+        header {
+            background-color: #6200ea;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-<script>
-function simpleCal() {
-  const a = Number(document.getElementById("num1").value);
-  const b = Number(document.getElementById("num2").value);
-  document.getElementById("simpleResult").innerText = "Result: " + (a + b);
-}
-</script>
+        .container {
+            padding: 20px;
+        }
 
-2. Scientific Calculator (Sin Function)
----------------------------------------
-<input id="angle" type="number" placeholder="Angle in degrees">
-<button onclick="sciCal()">Calculate Sin</button>
-<p id="sciResult"></p>
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-<script>
-function sciCal() {
-  const angle = Number(document.getElementById("angle").value);
-  const radians = angle * (Math.PI / 180);
-  document.getElementById("sciResult").innerText = "Sin: " + Math.sin(radians).toFixed(4);
-}
-</script>
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
 
-3. ATM - Card Validation
-------------------------
-<input type="text" id="cardNum" placeholder="Enter Card Number">
-<button onclick="validateATM()">Validate</button>
-<p id="atmResult"></p>
+        .table-container {
+            overflow-x: auto;
+        }
 
-<script>
-function validateATM() {
-  const num = document.getElementById("cardNum").value;
-  const isValid = /^\d{16}$/.test(num);
-  document.getElementById("atmResult").innerText = isValid ? "Valid Card Number" : "Invalid";
-}
-</script>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
 
-4. Password Check with Retype
------------------------------
-<input id="pwd1" type="password" placeholder="Password">
-<input id="pwd2" type="password" placeholder="Retype Password">
-<button onclick="checkPassword()">Check</button>
-<p id="pwdResult"></p>
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
 
-<script>
-function checkPassword() {
-  const p1 = document.getElementById("pwd1").value;
-  const p2 = document.getElementById("pwd2").value;
-  document.getElementById("pwdResult").innerText = p1 === p2 ? "Passwords Match" : "Passwords Do Not Match";
-}
-</script>
+        table th {
+            background-color: #6200ea;
+            color: white;
+        }
 
-5. Phone Number Validation
---------------------------
-<input id="phone" type="text" placeholder="Enter 10-digit number">
-<button onclick="validatePhone()">Validate</button>
-<p id="phoneResult"></p>
+        table .col-span {
+            text-align: center;
+            font-weight: bold;
+        }
 
-<script>
-function validatePhone() {
-  const phone = document.getElementById("phone").value;
-  const valid = /^\d{10}$/.test(phone);
-  document.getElementById("phoneResult").innerText = valid ? "Valid Phone Number" : "Invalid Phone Number";
-}
-</script>
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-6. Multiplication Table
-------------------------
-<input id="multNum" type="number" placeholder="Enter a number">
-<button onclick="generateTable()">Generate</button>
-<pre id="tableResult"></pre>
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
 
-<script>
-function generateTable() {
-  const num = Number(document.getElementById("multNum").value);
-  let table = "";
-  for (let i = 1; i <= 10; i++) {
-    table += `${num} x ${i} = ${num * i}\n`;
-  }
-  document.getElementById("tableResult").innerText = table;
-}
-</script>
+        input, select, button, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
 
-7. Login Form
--------------
-<input id="loginUser" type="text" placeholder="Username">
-<input id="loginPass" type="password" placeholder="Password">
-<button onclick="login()">Login</button>
-<p id="loginResult"></p>
+        button {
+            background-color: #6200ea;
+            color: white;
+            cursor: pointer;
+        }
 
-<script>
-function login() {
-  const user = document.getElementById("loginUser").value;
-  const pass = document.getElementById("loginPass").value;
-  const success = user === "admin" && pass === "1234";
-  document.getElementById("loginResult").innerText = success ? "Login Successful" : "Login Failed";
-}
-</script>
+        button:hover {
+            background-color: #4500b0;
+        }
 
-8. Student Report with Grade
-----------------------------
-<input id="studentName" type="text" placeholder="Student Name">
-<input id="marks" type="number" placeholder="Marks out of 100">
-<button onclick="generateReport()">Generate</button>
-<p id="reportResult"></p>
+        .options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
 
-<script>
-function generateReport() {
-  const name = document.getElementById("studentName").value;
-  const marks = Number(document.getElementById("marks").value);
-  let grade = "F";
-  if (marks >= 90) grade = "A";
-  else if (marks >= 80) grade = "B";
-  else if (marks >= 70) grade = "C";
-  else if (marks >= 60) grade = "D";
-  document.getElementById("reportResult").innerText = `${name}: ${marks} marks - Grade ${grade}`;
-}
-</script>
+        .options .option {
+            padding: 10px 20px;
+            background-color: #6200ea;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
 
-9. License Verification
-------------------------
-<input id="license" type="text" placeholder="License Number">
-<button onclick="verifyLicense()">Verify</button>
-<p id="licenseResult"></p>
+        .options .option:hover {
+            background-color: #4500b0;
+        }
 
-<script>
-function verifyLicense() {
-  const lic = document.getElementById("license").value;
-  const valid = /^DL-\d{4}-\d{7}$/.test(lic);
-  document.getElementById("licenseResult").innerText = valid ? "License Verified" : "Invalid License Format";
-}
-</script>
+        .date-picker {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .date-picker input {
+            flex: 1;
+        }
+
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        ul li, ol li {
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML & CSS Demo</h1>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Transformations and Hover Effects</h2>
+            <p>Hover over this card to see the effect.</p>
+        </div>
+
+        <div class="card">
+            <h2>Interactive Table</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Name</th>
+                            <th rowspan="2">Age</th>
+                            <th colspan="2">Details</th>
+                        </tr>
+                        <tr>
+                            <th>Role</th>
+                            <th>Department</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>30</td>
+                            <td>Developer</td>
+                            <td>IT</td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>25</td>
+                            <td>Designer</td>
+                            <td>Creative</td>
+                        </tr>
+                        <tr>
+                            <td>Sam Brown</td>
+                            <td>35</td>
+                            <td>Manager</td>
+                            <td>Operations</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Form with Fieldset and Legend</h2>
+            <form>
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Preferences</legend>
+                    <div class="form-group">
+                        <label>Choose your preferences:</label>
+                        <input type="checkbox" id="subscribe" name="preferences" value="subscribe">
+                        <label for="subscribe">Subscribe to newsletter</label><br>
+                        <input type="checkbox" id="updates" name="preferences" value="updates">
+                        <label for="updates">Receive updates</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Choose your gender:</label>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label><br>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="textarea">Comments:</label>
+                        <textarea id="textarea" rows="4" placeholder="Enter your comments here..."></textarea>
+                    </div>
+
+                    <div class="form-group date-picker">
+                        <label for="date">Select a date:</label>
+                        <input type="date" id="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Select a time:</label>
+                        <input type="time" id="time">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="range">Choose a value:</label>
+                        <input type="range" id="range" min="1" max="100">
+                    </div>
+                </fieldset>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Dynamic Options</h2>
+            <div class="options">
+                <div class="option">Option A</div>
+                <div class="option">Option B</div>
+                <div class="option">Option C</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Lists and Shapes</h2>
+            <h3>Unordered List</h3>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+            <h3>Ordered List</h3>
+            <ol>
+                <li>First</li>
+                <li>Second</li>
+                <li>Third</li>
+            </ol>
+            <h3>Shapes</h3>
+            <div style="display: flex; gap: 10px;">
+                <div style="width: 50px; height: 50px; background-color: red; border-radius: 50%;"></div>
+                <div style="width: 50px; height: 50px; background-color: blue;"></div>
+                <div style="width: 50px; height: 50px; background-color: green; clip-path: polygon(50% 0%, 100% 100%, 0% 100%);"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
